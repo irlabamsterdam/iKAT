@@ -1,0 +1,1335 @@
+[
+    {
+        "number": "1-1",
+        "title": "Finding a university",
+        "ptkb": {
+            "1": "I graduated from Tilburg university.",
+            "2": "I live in the Netherlands.",
+            "3": "I'm allergic to peanuts.",
+            "4": "I worked as a web developer for 2 years.",
+            "5": "I have a bachelor's degree in computer science.",
+            "6": "I like Indian food.",
+            "7": "My bachelor's GPA is 5.6.",
+            "8": "I'm 26 years old.",
+            "9": "My TOEFL SCORE is 91.",
+            "10": "My interesting bachelor courses are data structure, algorithm, data mining, and artificial intelligence.",
+            "11": "I didn't like computer architecture and logical circuits courses."
+        },
+        "turns": [
+            {
+                "turn_id": 1,
+                "utterance": "I want to start my master's degree, can you help me with finding a university?",
+                "resolved_utterance": "I want to start my master's degree, can you help me with finding a university?",
+                "response": "Do you want to continue your bachelor's studies and obtain a degree in computer science?",
+                "ptkb_provenance": [
+                    5
+                ],
+                "response_provenance": []
+            },
+            {
+                "turn_id": 2,
+                "utterance": "Yes, I want to continue my studies in computer science.",
+                "resolved_utterance": "Yes, I want to continue my studies in computer science.",
+                "response": "Do you want to study in the Netherlands, Europe, or somewhere further away?",
+                "ptkb_provenance": [
+                    2
+                ],
+                "response_provenance": []
+            },
+            {
+                "turn_id": 3,
+                "utterance": "I'd like to stay here.",
+                "resolved_utterance": "I'd like to stay in the Netherlands.",
+                "response": "I can help you with finding a university for continuing your studies in the Netherlands as a computer science student. Take a look at these Top Computer Science Universities in the Netherlands: Delft University of Technology, Eindhoven University of Technology, Vrije Universiteit Amsterdam, University of Amsterdam, Leiden University, Radboud University, Utrecht University, University of Twente",
+                "ptkb_provenance": [
+                    5,
+                    2
+                ],
+                "response_provenance": [
+                    "clueweb22-en0034-09-03452:1"
+                ]
+            },
+            {
+                "turn_id": 4,
+                "utterance": "Which are the best three with the highest ranking?",
+                "resolved_utterance": "what are the best three universities among the Delft University of Technology, Eindhoven University of Technology, Vrije Universiteit Amsterdam, University of Amsterdam, Leiden University, Radboud University, Utrecht University, and the University of Twente?",
+                "response": "Based on the ranking of research.com the top three universities are as follows: 1. Delft University of Technology, 2. University of Amsterdam (UVA), 3. Eindhoven University of Technology.",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0016-21-09213:0"
+                ]
+            },
+            {
+                "turn_id": 5,
+                "utterance": "I know the tuition fee of UVA is around 2K Euros per semester. Can you tell me about the tuition fee for the other ones?",
+                "resolved_utterance": "I know the tuition fee of UVA is around 2K Euros per semester. Can you tell me the tuition fee for the master's program of computer science at Delft and Eindhoven universities?",
+                "response": "Delft University of Technology Cost: EUR2,083 per year for Dutch and EU students. The Eindhoven University of Technology Undergraduate Tuition Fees is EUR 2,200 (USD $2,500) Per Year for Swiss & EU students.",
+                "ptkb_provenance": [
+                    2
+                ],
+                "response_provenance": [
+                    "clueweb22-en0041-44-05546:3",
+                    "clueweb22-en0036-19-06579:9"
+                ]
+            },
+            {
+                "turn_id": 6,
+                "utterance": "Which one is closest to me?",
+                "resolved_utterance": "Which of the Delft University of Technology, University of Amsterdam (UVA), and the Eindhoven University of Technology is closest to me?",
+                "response": "Where do you live?",
+                "ptkb_provenance": [
+                    2
+                ],
+                "response_provenance": []
+            },
+            {
+                "turn_id": 7,
+                "utterance": "Near Utrecht.",
+                "resolved_utterance": "Near Utrecht.",
+                "response": "Trains traveling from Amsterdam to Utrecht cover a distance of around 22 miles (36 km) during the journey.",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0019-76-12082:9",
+                    "clueweb22-en0013-10-03724:2"
+                ]
+            },
+            {
+                "turn_id": 8,
+                "utterance": "I think I should start by applying to the University of Amsterdam and Delft University. Thanks for the help!",
+                "resolved_utterance": "I think I should start by applying to the University of Amsterdam and Delft University. Thanks for the help!",
+                "response": "Good luck!",
+                "ptkb_provenance": [],
+                "response_provenance": []
+            }
+        ]
+    },
+    {
+        "number": "1-2",
+        "title": "Finding a university",
+        "ptkb": {
+            "1": "I don't like crazy cold weather.",
+            "2": "I don't have a driver's license.",
+            "3": "I plan to move to Canada.",
+            "4": "I'm from the Netherlands.",
+            "5": "I'm used to heavy rains in the Netherlands.",
+            "6": "I graduated from UvA.",
+            "7": "I have bachelor's degree in computer science.",
+            "8": "I speak English fluently."
+        },
+        "turns": [
+            {
+                "turn_id": 1,
+                "utterance": "I want to start my master's degree, can you help me with finding a university?",
+                "resolved_utterance": "I want to start my master's degree, can you help me with finding a university in Canada?",
+                "response": "Sure, do you want to study computer science?",
+                "ptkb_provenance": [
+                    7,
+                    3
+                ],
+                "response_provenance": []
+            },
+            {
+                "turn_id": 2,
+                "utterance": "Yes, I want to pursue the same major. Can you tell me the name of the best universities?",
+                "resolved_utterance": "Yes, I want to pursue computer science. Can you tell me the name of the best computer science universities in Canada?",
+                "response": "Here are the top universities for computer science in Canada: 1) University of British Columbia, 2) University of Alberta, 3)Concordia University, 4) Simon Fraser University, 5)The University of Toronto",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0026-31-15538:1",
+                    "clueweb22-en0026-31-15538:4",
+                    "clueweb22-en0026-31-15538:6",
+                    "clueweb22-en0040-41-06056:0"
+                ]
+            },
+            {
+                "turn_id": 3,
+                "utterance": "Which of them best suits me in terms of weather conditions?",
+                "resolved_utterance": "Which of the following universities best suits me in terms of weather conditions? 1) the University of British Columbia, 2) the University of Alberta, 3)Concordia University, 4) Simon Fraser University, and 5)The University of Toronto.",
+                "response": "I know you don't like very cold weather, but can you give me an estimation of the temperature that is acceptable for you?",
+                "ptkb_provenance": [
+                    1,
+                    5
+                ],
+                "response_provenance": []
+            },
+            {
+                "turn_id": 4,
+                "utterance": "Ok, sure. Let's say I can live with -10 degrees, but below that would be impossible really.",
+                "resolved_utterance": "Ok, sure. Let's say I can live with -10 degrees, but below that would be impossible really.",
+                "response": "University of British Columbia in Vancouver has temperatures near 80 degrees Fahrenheit (27 degrees Celsius) in summer and up to 45 degrees Fahrenheit (about 7 degrees Celsius) in winter which can be suitable for you. The University of Toronto is acceptable since it has cold winters, average temperatures can drop below -10 deg C but not below 12 degrees for long. The Concordia University in Montreal is not suitable for you since in the winter, it could reach minus 40 with the wind chill. The University of Alberta is also not suitable for you. In winter the average temperature varies between -6.5degC (20.3degF) and -13.5degC (7.7degF). Simon Fraser University is not acceptable to you. The city in which the university is located will reach temperatures of -14 in the winter.",
+                "ptkb_provenance": [
+                    1,
+                    5
+                ],
+                "response_provenance": [
+                    "clueweb22-en0000-94-02275:0",
+                    "clueweb22-en0027-06-08704:1",
+                    "clueweb22-en0005-63-12144:0",
+                    "clueweb22-en0013-01-17558:1",
+                    "clueweb22-en0014-39-04143:0"
+                ]
+            },
+            {
+                "turn_id": 5,
+                "utterance": "Can you tell me more about the University of Toronto?",
+                "resolved_utterance": "Can you tell me more about the University of Toronto?",
+                "response": "Sure, what do you want to know about? Do you want to know about its campus, community, or programs?",
+                "ptkb_provenance": [],
+                "response_provenance": []
+            },
+            {
+                "turn_id": 6,
+                "utterance": "I want to know more about its computer science program.",
+                "resolved_utterance": "I want to know more about the computer science program at the University of Toronto?",
+                "response": "University of Toronto Ranked 11th for Computer Science & Information Systems by QS Subject Rankings 2019, University of Toronto has been at the forefront of education for over 50 years. Here are some of the best CS courses at the university. COMPUTER SCIENCE PROGRAMMES AT THE UNIVERSITY OF TORONTO Degree: Honors Bachelor of Science Course Duration: 3 years Computer Science Programmes to choose from: Data Science Specialist (Science Program) Computer Science Specialist Focus in Artificial Intelligence Focus in Computational Linguistics and Natural Language Processing Focus in Computer System Focus in Computer Vision Focus in Game Design Focus in Human-Computer interaction Focus in Scientific Computing Focus in Theory of Computation Focus in Web and Internet Technologies Popular Master's Programmes: Masters in Applied Computing Duration - 1 year 4 months Application deadline - In the month of December Masters in Information Duration - 2 years Application Deadline - In the month of April MSc Computer Science Duration - 3 years Application deadline - In the month of December 2. University of British Columbia Founded in 1908, the University of British Columbia was ranked 51st in the world and 3rd in Canada (QS World University Rankings 2020).",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0025-98-06099:5"
+                ]
+            },
+            {
+                "turn_id": 7,
+                "utterance": "Nice! It has a very high ranking university. How about the University of British Columbia?",
+                "resolved_utterance": "Nice! The University of Toronto has a very high ranking university. How about the computer science program at the University of British Columbia?",
+                "response": "It offers 5 bachelor's, 4 master's, and 2 doctoral degrees in the field of computer science. Find below some of the popular computer science programs along with their fee details offered at the University of British Columbia: Undergraduate Computer Science Courses at UBC Bachelor of Science [ B.Sc in Computer Science: $30,573 Bachelor of Applied Science [ B.ASc in Computer Engineering: $38,129 Bachelor of Arts [ B.A in Computer Science: $29,680 Bachelor of Commerce",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0040-41-06056:5"
+                ]
+            },
+            {
+                "turn_id": 8,
+                "utterance": "Thanks, your answer is useful, but I'm looking for its ranking.",
+                "resolved_utterance": "Thanks, your answer is useful, but I'm looking for the computer science program ranking of the University of British Columbia.",
+                "response": "The University of British Columbia is a public educational institution located in the Canadian province of British Columbia. It was founded in 1908 and has two main campuses- the Vancouver campus and the Okanagan campus located in Kelowna. It is ranked #31 in Best Global Universities and #48 in Best Universities for Computer Science by the US News and World Report Rankings. UBC is ranked #46 in the QS Global Ranking 2022.",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0040-41-06056:5"
+                ]
+            },
+            {
+                "turn_id": 9,
+                "utterance": "Am I eligible for these two universities?",
+                "resolved_utterance": "Am I eligible for the University of Toronto and The University of British Columbia?",
+                "response": "These universities require English-language proficiency and they have a minimum score for the TOEFL test. Do you remember your TOEFL score?",
+                "ptkb_provenance": [
+                    8
+                ],
+                "response_provenance": []
+            },
+            {
+                "turn_id": 10,
+                "utterance": "Yes, it was 98.",
+                "resolved_utterance": "Yes, my overall TOEFL score was 98.",
+                "response": "You are only eligible for the University of British Columbia. Here is what I found on the minimum TOEFL and GPA requirements of both universities. The University of Toronto accepts applicants who have taken several English language tests. Here is the list of minimum score requirements for various English proficiency tests to seek admission to the U of T: For IELTS, the minimum accepted score is 6.5. For TOEFL, the total accepted score is 100. Also, the candidate must have a minimum G.P.A. of 3.7. University of British Columbia - Vancouver - Canada and G+PS's graduate student-specific information. TOEFL (Test of English as a Foreign Language) The minimum TOEFL score required for all applicants to the Faculty of Graduate and Postdoctoral Studies is 90 for the internet-based exam. Also, Minimum required grades Graduate degree, Minimum required grades Graduate degree: GPA 3.3-3.7",
+                "ptkb_provenance": [
+                    7,
+                    8,
+                    2
+                ],
+                "response_provenance": [
+                    "clueweb22-en0046-68-10783:6",
+                    "clueweb22-en0017-79-04282:0",
+                    "clueweb22-en0012-38-18633:0",
+                    "clueweb22-en0003-15-08133:8"
+                ]
+            },
+            {
+                "turn_id": 11,
+                "utterance": "Then, I will start with applying to the University of British Columbia.",
+                "resolved_utterance": "Then, I will start with applying for the University of British Columbia.",
+                "response": "Best of luck!",
+                "ptkb_provenance": [],
+                "response_provenance": []
+            }
+        ]
+    },
+    {
+        "number": "2-1",
+        "title": "Visiting doha",
+        "ptkb": {
+            "1": "I like sightseeing.",
+            "2": "I hate long flights.",
+            "3": "I'm a big Lakers fan.",
+            "4": "I live in the United States.",
+            "5": "I am partially disabled.",
+            "6": "I'm 35 years old.",
+            "7": "I enjoy shopping.",
+            "8": "I occasionally smoke and drink.",
+            "9": "I'm interested in the culture and history of different countries.",
+            "10": "I dislike hot weather."
+        },
+        "turns": [
+            {
+                "turn_id": 1,
+                "utterance": "I have a 48-hour layover in Doha; what can I do there?",
+                "resolved_utterance": "I have a 48-hour layover in Doha; what can I do there?",
+                "response": "There are a number of sights to see in Doha. There is the Museum of Islamic Art and the National Museum of Qatar that presents the history of Qatar. You are also able to visit the Grand Mosque. There is also a man-made island called Pearl Island with entertainment venues and many shops. And of course, there is the famous Souk Waqif which has both camel and falcon markets as well as souvenirs and crafts.",
+                "ptkb_provenance": [
+                    9,
+                    1,
+                    7
+                ],
+                "response_provenance": [
+                    "clueweb22-en0037-01-10452:0",
+                    "clueweb22-en0037-01-10452:3",
+                    "clueweb22-en0037-01-10452:4",
+                    "clueweb22-en0021-67-06908:2"
+                ]
+            },
+            {
+                "turn_id": 2,
+                "utterance": "I am not interested in visiting any museums. Are there any outdoor activities?",
+                "resolved_utterance": "I am not interested in visiting any museums in Doha. Are there any outdoor activities?",
+                "response": "There are tours out in the desert. Specially equipped vehicles drive over the sand dunes, sometimes at high speeds. You can also have a camel ride and watch a demonstration of falconry.",
+                "ptkb_provenance": [
+                    1
+                ],
+                "response_provenance": [
+                    "clueweb22-en0035-71-19381:0",
+                    "clueweb22-en0006-90-14126:0",
+                    "clueweb22-en0007-94-13029:4"
+                ]
+            },
+            {
+                "turn_id": 3,
+                "utterance": "Not interesting to me. I would rather try new restaurants.",
+                "resolved_utterance": "I am not interested in tours in the desert of Qatar. I would rather try new restaurants in Doha.",
+                "response": "There are many great restaurants in Doha. Qatar is famous for its food. There are international restaurants but of course many with local cuisine. What kind of restaurant would you like to try?",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0001-37-00359:0"
+                ]
+            },
+            {
+                "turn_id": 4,
+                "utterance": "I don't know, but I like lamb. Is that available?",
+                "resolved_utterance": "I don't have a specific cuisine in mind, but I like to eat lamb. Is lamb available in any restaurant?",
+                "response": "Majboos is a traditional Qatari dish made with rice and lamb. You will find it in many local restaurants including Al Manchab, Opus, and Al Hubara.",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0022-43-15729:3",
+                    "clueweb22-en0041-24-14909:6",
+                    "clueweb22-en0015-07-12856:0"
+                ]
+            },
+            {
+                "turn_id": 5,
+                "utterance": "Are there any sights along the waterfront?",
+                "resolved_utterance": "Are there any sights along the waterfront in Doha?",
+                "response": "The waterfront or corniche runs along Doha Bay. There is a promenade and park there where people like to gather. Public art is on display. There are food kiosks there. It is particularly beautiful at dawn when the sun reflects off the city's buildings, or in the evenings when there are fireworks.",
+                "ptkb_provenance": [
+                    1,
+                    9
+                ],
+                "response_provenance": [
+                    "clueweb22-en0001-29-01190:0",
+                    "clueweb22-en0036-96-12790:7",
+                    "clueweb22-en0029-82-02783:2",
+                    "clueweb22-en0002-33-07488:4"
+                ]
+            }
+        ]
+    },
+    {
+        "number": "2-2",
+        "title": "Visiting doha",
+        "ptkb": {
+            "1": "I've lived in many states in the US.",
+            "2": "In my childhood, I had a bike accident.",
+            "3": "I like to shop.",
+            "4": "I live alone.",
+            "5": "I like to socialize with my friends.",
+            "6": "I like to take photographs.",
+            "7": "I live in the United States.",
+            "8": "I am a collector."
+        },
+        "turns": [
+            {
+                "turn_id": 1,
+                "utterance": "I am visiting Doha. Can you suggest me some activities to do there?",
+                "resolved_utterance": "I am visiting Doha. Can you suggest me some activities to do there?",
+                "response": "There are many places to go shopping in Doha. There are at least 20 large shopping malls in Doha with hundreds of stores. Most of the stores offer high-end and luxury goods. Most shopping malls in Doha also offer a variety of entertainment and dining options.",
+                "ptkb_provenance": [
+                    3
+                ],
+                "response_provenance": [
+                    "clueweb22-en0020-84-03952:1",
+                    "clueweb22-en0007-52-15305:0"
+                ]
+            },
+            {
+                "turn_id": 2,
+                "utterance": "If I visit one or two, which should I visit?",
+                "resolved_utterance": "If I visit just one or two shopping malls in Doha, which should I visit",
+                "response": "The City Center Mall is the oldest and largest shopping mall in Doha. It is one of the most visited attractions in Doha. There are more than 350 stores, many restaurants, a movie theater, and a variety of services that you might need. A Fun City Zone offers children activities such as wall climbing, go-karting, and arcade games. Would you like to know about another large shopping mall?",
+                "ptkb_provenance": [
+                    3
+                ],
+                "response_provenance": [
+                    "clueweb22-en0015-12-07527:0",
+                    "clueweb22-en0015-12-07527:1"
+                ]
+            },
+            {
+                "turn_id": 3,
+                "utterance": "No, but are there any traditional souks that I can visit?",
+                "resolved_utterance": "No, but are there any traditional souks in Doha that I can visit?",
+                "response": "The most famous and most visited souk in Doha is the Souk Waqif. There is a multitude of stalls selling food, spices, gold, clothing, perfumes, animals, household supplies, antiques, and handicrafts in the Souk Waqif. There is a large area with many restaurants. Unique to the Souk Waqif is the Falcon Souk where the birds themselves are actually on display and sold there. This is a popular area for photographers.",
+                "ptkb_provenance": [
+                    3
+                ],
+                "response_provenance": [
+                    "clueweb22-en0044-84-04729:0",
+                    "clueweb22-en0008-85-10824:0"
+                ]
+            },
+            {
+                "turn_id": 4,
+                "utterance": "Are there any fabric shops there? I collect textiles and would like to shop for fabrics.",
+                "resolved_utterance": "Are there any fabric shops in the Souk Waqif? I collect textiles and would like to shop for fabrics in Doha.",
+                "response": "Do you want to know the fabric shops of Doha?",
+                "ptkb_provenance": [],
+                "response_provenance": []
+            },
+            {
+                "turn_id": 5,
+                "utterance": "Indeed the fabric shops of Souk Waqif.",
+                "resolved_utterance": "Indeed the fabric shops of Souk Waqif.",
+                "response": "The textile section is one of the most popular in the Souk Waqif. There are many shops that sell colorful fabrics by the yard that can be used for clothing or home goods. In addition, tailors are available to turn your fabric purchases into custom-made garments or objects.",
+                "ptkb_provenance": [
+                    3,
+                    8
+                ],
+                "response_provenance": [
+                    "clueweb22-en0010-25-07401:3",
+                    "clueweb22-en0008-85-10824:0"
+                ]
+            },
+            {
+                "turn_id": 6,
+                "utterance": "It sounds wonderful and just the place I would like to visit. Any other shops I should not miss?",
+                "resolved_utterance": "The Souk Waqif sounds wonderful and is just the place I would like to visit. Are there any other fabric shops in Doha that I should not miss?",
+                "response": "Fabric stores are not found in shopping malls, but there are some fabric stores located around the city. Here are some well-known fabric shops in Doha: Essa Al Suwaidi & Sons Co., the Bouquet store, FIOUR, and the Souk Al-Diera.",
+                "ptkb_provenance": [
+                    3
+                ],
+                "response_provenance": [
+                    "clueweb22-en0045-31-15746:0",
+                    "clueweb22-en0045-31-15746:1",
+                    "clueweb22-en0045-31-15746:2"
+                ]
+            }
+        ]
+    },
+    {
+        "number": "3-1",
+        "title": "Rome hotels",
+        "ptkb": {
+            "1": "Sometimes I read novels.",
+            "2": "I like to travel.",
+            "3": "I enjoy baking cakes.",
+            "4": "I enjoy watching Netflix.",
+            "5": "I am partially disabled.",
+            "6": "I like European culture.",
+            "7": "I am Catholic.",
+            "8": "I live in the United States.",
+            "9": "I like to try new restaurants."
+        },
+        "turns": [
+            {
+                "turn_id": 1,
+                "utterance": "I am going to Rome and need to find a hotel. Can you help me?",
+                "resolved_utterance": "I am going to Rome and need to find a hotel. Can you help me with finding a hotel in Rome?",
+                "response": "Sure, do you mean Rome, Italy? Perhaps Rome, New York?",
+                "ptkb_provenance": [
+                    8
+                ],
+                "response_provenance": [
+                    "clueweb22-en0015-77-15318:1"
+                ]
+            },
+            {
+                "turn_id": 2,
+                "utterance": "Yes. I am going to Rome. Italy, in December, and need to find a hotel.",
+                "resolved_utterance": "Yes, I am going to Rome, Italy, in December and need to find a hotel in Rome?",
+                "response": "Rome is a great city. There are many factors to consider to choose a hotel: location, price, and services. Would you like to be near the Vatican or Trevi or the Forum?",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0005-65-10533:0"
+                ]
+            },
+            {
+                "turn_id": 3,
+                "utterance": "Not really. I am not sure where I want to stay, what is your suggestion?",
+                "resolved_utterance": "Not really. I am not sure where I want to stay, what is your suggestion?",
+                "response": "You can stay close to Vatican City. There are many hotels near the Vatican. Here are some hotels near the Vatican: the Boutique Hotel Rome, Hotel Vespasiano, and Hotel S. Anna. Would you like to learn about any of these?",
+                "ptkb_provenance": [
+                    7
+                ],
+                "response_provenance": [
+                    "clueweb22-en0036-10-16685:0",
+                    "clueweb22-en0036-10-16685:1",
+                    "clueweb22-en0019-25-12095:0",
+                    "clueweb22-en0027-30-18662:4",
+                    "clueweb22-en0027-30-18662:9"
+                ]
+            },
+            {
+                "turn_id": 4,
+                "utterance": "Maybe. What about other options close to Central?",
+                "resolved_utterance": "Maybe. What about other hotels close to Central station of Rome?",
+                "response": "Of course. There are many hotels near the central train station. Here are some hotels near the central Termini Station: Hotel Rimini, Hotel Firenza, and Hotel Positano.",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0010-77-00064:1",
+                    "clueweb22-en0010-77-00064:2",
+                    "clueweb22-en0027-62-01312:0",
+                    "clueweb22-en0027-30-18662:0",
+                    "clueweb22-en0019-24-03356:10",
+                    "clueweb22-en0019-24-03356:9"
+                ]
+            },
+            {
+                "turn_id": 5,
+                "utterance": "That doesn't sound like a safe area. I was in Rome before and liked the area around the Spanish Steps.",
+                "resolved_utterance": "That doesn't sound like a safe area. I was in Rome before and liked the area around the Spanish Steps. What hotels are around the Spanish Steps?",
+                "response": "Yes. There are many hotels near the Spanish Steps. Here are some: Hotel Golden, Hotel Piazza di Spagna, and Hotel Fellini. Would you like to learn about any of these?",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0019-42-04431:0",
+                    "clueweb22-en0019-42-04431:0",
+                    "clueweb22-en0019-42-04431:3",
+                    "clueweb22-en0043-06-05668:0"
+                ]
+            },
+            {
+                "turn_id": 6,
+                "utterance": "Great. Are any of these hotels handicapped-friendly? I have trouble climbing a lot of steps.",
+                "resolved_utterance": "Great. Are any of the Hotel Golden, Hotel Piazza di Spagna, and Hotel Fellini hotels handicapped-friendly? I have trouble climbing a lot of steps.",
+                "response": "Yes. Among others, the following hotels have elevators to make them accessible: Hotel Golden, Hotel Manfredi, and Hotel Inghilterra.",
+                "ptkb_provenance": [
+                    5
+                ],
+                "response_provenance": [
+                    "clueweb22-en0017-79-02778:0",
+                    "clueweb22-en0035-46-08311:0",
+                    "clueweb22-en0026-57-04231:7"
+                ]
+            }
+        ]
+    },
+    {
+        "number": "3-2",
+        "title": "Rome hotels",
+        "ptkb": {
+            "1": "I'm in between jobs.",
+            "2": "I live in the United States.",
+            "3": "I'm not religious.",
+            "4": "I have a degree in Classics.",
+            "5": "I enjoy jazz music.",
+            "6": "I like vegeterian food.",
+            "7": "I like to take photographs.",
+            "8": "I love it when it snows.",
+            "9": "I like to shop.",
+            "10": "Today is the 10th of November.",
+            "11": "I have trouble sleeping when it's noisy."
+        },
+        "turns": [
+            {
+                "turn_id": 1,
+                "utterance": "I need to find a hotel. Can you help me with that?",
+                "resolved_utterance": "I need to find a hotel in Italy. Can you help me with finding a hotel in Italy?",
+                "response": "Where are you traveling to?",
+                "ptkb_provenance": [],
+                "response_provenance": []
+            },
+            {
+                "turn_id": 2,
+                "utterance": "Rome. I am going to Rome, Italy for a week next month.",
+                "resolved_utterance": "I am going to Rome, Italy for a week in December.",
+                "response": "There are many hotels in Rome. Do you have any specific requirements? Do you have a location in mind?",
+                "ptkb_provenance": [
+                    10
+                ],
+                "response_provenance": [
+                    "clueweb22-en0008-55-13183:0",
+                    "clueweb22-en0029-14-10529:12"
+                ]
+            },
+            {
+                "turn_id": 3,
+                "utterance": "I would like to stay at a small one that will serve breakfast. I am not sure of the location.",
+                "resolved_utterance": "I would like to stay at a small hotel in Rome that will serve breakfast. I am not sure of the location.",
+                "response": "Since you will be in Rome during the Advent season, maybe you would like to be close to Vatican City? There are special masses and events during the holidays.",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0036-10-16685:0",
+                    "clueweb22-en0045-76-08532:0"
+                ]
+            },
+            {
+                "turn_id": 4,
+                "utterance": "No. I would like to be close to the city center.",
+                "resolved_utterance": "No. I would like a hotel close to the city center of Rome.",
+                "response": "How about near the Piazza Navona? It is a popular tourist area and is in the city center. There are many restaurants and hotels nearby.",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0046-34-04839:4"
+                ]
+            },
+            {
+                "turn_id": 5,
+                "utterance": "Yes. That would be great. What do you recommend?",
+                "resolved_utterance": "Yes. That would be great. What hotels do you recommend?",
+                "response": "Hotels near the Piazza Navona include the Hotel Navona, the Eitch Borromini Palazzo, the Hotel Martis Palace, and the Hotel Raphael.",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0034-66-03574:0",
+                    "clueweb22-en0043-77-03368:1",
+                    "clueweb22-en0028-84-07304:0",
+                    "clueweb22-en0045-25-07590:0"
+                ]
+            },
+            {
+                "turn_id": 6,
+                "utterance": "Tell me more about the first one.",
+                "resolved_utterance": "Tell me more about the Hotel Navona.",
+                "response": "The Hotel Navona is a small hotel within walking distance of the Piazza Navona. It is located in a historic building that has been fully modernized with air conditioning, wi-fi, and an elevator. There is a restaurant at the hotel that serves breakfast to guests. Would you like to know more about another hotel?",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0034-66-03574:0",
+                    "clueweb22-en0002-56-17111:0"
+                ]
+            },
+            {
+                "turn_id": 7,
+                "utterance": "Yes. Tell me more about the last one.",
+                "resolved_utterance": "Yes. Tell more about the Hotel Raphael in Rome.",
+                "response": "The Hotel Raphael is also located near the Piazza Navona. It is a small luxury hotel. From here you will be able to walk to many of the famous tourist sites. The hotel building has been thoroughly modernized with an elevator, wi-fi and air conditioning.  Breakfast is available at the hotel.",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0045-25-07590:0",
+                    "clueweb22-en0011-38-02150:6"
+                ]
+            }
+        ]
+    },
+    {
+        "number": "4-1",
+        "title": "Picnic recipes",
+        "ptkb": {
+            "1": "I play badminton.",
+            "2": "I like to try new recipes.",
+            "3": "I'm retired.",
+            "4": "I have a big family.",
+            "5": "I like rhubarb.",
+            "6": "I do not like anchovies.",
+            "7": "I'm a Whole Foods customer.",
+            "8": "I like to entertain family and friends.",
+            "9": "I live in the United States.",
+            "10": "I am not vegan or vegetarian.",
+            "11": "I like to cook."
+        },
+        "turns": [
+            {
+                "turn_id": 1,
+                "utterance": "I am hosting a picnic on the Fourth of July. I am grilling hamburgers and hotdogs. What new side dishes can I try?",
+                "resolved_utterance": "I am hosting a picnic on the Fourth of July. I am grilling hamburgers and hotdogs. What new side dishes can I prepare?",
+                "response": "Are any of your guests vegan or vegetarian? Do you need to find some vegetarian recipes?",
+                "ptkb_provenance": [
+                    2,
+                    10,
+                    6
+                ],
+                "response_provenance": []
+            },
+            {
+                "turn_id": 2,
+                "utterance": "Well, at least one person is a vegetarian. I was thinking of trying to make something with tofu. What can I make with tofu?",
+                "resolved_utterance": "Yes, at least one of my guests is a vegetarian. I would like to make something with tofu. What recipes can I make with tofu?",
+                "response": "Crispy tofu is good. Cubes of tofu are tossed in cornstarch and browned in a pan or air-fried. Tossed with a spicy sauce it can be served at room temperature for a good picnic side dish. Use bottled sauce if you don't want to make your own.",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0023-39-08004:1",
+                    "clueweb22-en0009-58-10127:14",
+                    "clueweb22-en0031-52-10999:1"
+                ]
+            },
+            {
+                "turn_id": 3,
+                "utterance": "I would like to try that. I would also like to make something with hummus. What recipes can I make with it?",
+                "resolved_utterance": "The tofu sounds delicious. I would like to try that. I would also like to make a recipe with hummus. What recipes can I make with hummus?",
+                "response": "Make some hummus sandwiches. You can make your own hummus or buy it in a tub. Make some sandwiches by spreading hummus on one side of a wrap/tortilla. Add roasted, pickled, or fresh vegetables of your choice. Roll up and secure with picks. Slice to serve.",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0013-23-08168:0",
+                    "clueweb22-en0038-99-12841:11",
+                    "clueweb22-en0016-24-13814:6"
+                ]
+            },
+            {
+                "turn_id": 4,
+                "utterance": "A big tray of sandwiches sounds good. I would also like to make a salad. A pasta salad sounds good, but since this is a picnic, made with vinaigrette and not mayonnaise. What recipes are there?",
+                "resolved_utterance": "A big tray of sandwiches sounds good. I would also like to make a salad. A pasta salad sounds good, but since this is a picnic, made with vinaigrette and not mayonnaise. What are some recipes for pasta salad?",
+                "response": "Pasta salads are so versatile and easy. There are many recipes. Any kind of pasta can be used. All kinds of vegetables can be added. Try using canned beans, chopped onions, celery, red or green peppers, shredded carrots, olives, tiny tomatoes, frozen corn, or peas. Leave out any meats or cheese to make it vegetarian. Make a beautiful and tasty vinaigrette. Choose your oil and vinegar. Season well to your tastes. Try adding salt, pepper, garlic, Italian Seasoning, mustard, or even maple syrup. Leave out the mayonnaise or sour cream to make it safe at room temperature.",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0028-30-09300:0",
+                    "clueweb22-en0002-22-03298:1",
+                    "clueweb22-en0018-78-11857:4"
+                ]
+            },
+            {
+                "turn_id": 5,
+                "utterance": "Sounds delicious. Since this is a picnic, I will have to make some coleslaw but it can't be made with mayonnaise. What recipes are there?",
+                "resolved_utterance": "Sounds delicious. Since this is a picnic, I will have to make some coleslaw but it can't be made with mayonnaise. What recipes are there for a tangy coleslaw?",
+                "response": "Every picnic must have coleslaw! To the shredded cabbage, try adding some shredded carrots or broccoli. For the dressing, choose your vinegar and seasonings such as salt, pepper, sugar, maple syrup, mustard, celery seeds, or chili flakes. Since it will be served at room temperature, don't add any mayonnaise.",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0030-16-02888:5",
+                    "clueweb22-en0008-17-13836:2",
+                    "clueweb22-en0019-85-04994:9"
+                ]
+            },
+            {
+                "turn_id": 6,
+                "utterance": "Any Ideas for dessert? For dessert, I think we'll make some s'mores. What do we need to make some s'mores?",
+                "resolved_utterance": "Any Ideas for dessert? For dessert, I think we'll make some s'mores. What ingredients do we need to make some s'mores?",
+                "response": "All you need to make s'mores is a hot grill, graham crackers, marshmallows, and milk chocolate candy bars. Don't forget to bring some skewers to roast and toast the marshmallows. With the same ingredients and some flour and egg, you can also bake some bar cookies. Extra servings of dessert are always good.",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0017-99-12706:4",
+                    "clueweb22-en0012-49-14209:0"
+                ]
+            }
+        ]
+    },
+    {
+        "number": "5-1",
+        "title": "Water resource management",
+        "ptkb": {
+            "1": "I am interested in water resource management and its role in ensuring a sustainable future.",
+            "2": "I am an environmental enthusiast with a passion for sustainable living.",
+            "3": "I like to take care of the flora and fauna around me.",
+            "4": "I am keen to learn about the latest technologies.",
+            "5": "I am interested in budget-friendly equipment for water management.",
+            "6": "I like to use resources in a sustainable manner.",
+            "7": "I live in London, UK.",
+            "8": "I want to learn how to save water in my daily life."
+        },
+        "turns": [
+            {
+                "turn_id": 1,
+                "utterance": "Hey there! I am interested to know about water resource management. Can you tell me more about this?",
+                "resolved_utterance": "Hey there! I am interested to know about water resource management. Can you tell me more about water resource management?",
+                "response": "Water resource management refers to the planning, development, and optimization of water resources, often with the goal of sustainability and protection of the environment. It includes managing water resources to balance the needs of different sectors like agriculture, industry, and domestic use, while also ensuring the sustainability of natural ecosystems.",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0000-35-14322:1",
+                    "clueweb22-en0008-42-05292:4"
+                ]
+            },
+            {
+                "turn_id": 2,
+                "utterance": "And why is it important?",
+                "resolved_utterance": "And why is water resource management important?",
+                "response": "Water resource management is important because water is essential for life, agriculture, and energy. Proper management of water resources helps in developing efficient irrigation practices, reducing water and sewer costs, saving energy, and ensuring water quality and safety. It also teaches us to use a limited amount of water whenever required and avoid wastage. By managing water resources properly, we can preserve water resources for future generations. Water scarcity affects more than 40% of the global population and water-related disasters account for 70% of all deaths related to natural disasters. With current practices, the world will face a 40% shortfall between forecast demand and available supply of water by 2030. Therefore, it is crucial to manage water resources effectively to ensure sustainability of water use, build climate resilience and strengthen integrated management. Is there anything else you would like to know?",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0036-13-01618:1",
+                    "clueweb22-en0002-25-19053:0"
+                ]
+            },
+            {
+                "turn_id": 3,
+                "utterance": "Wow, I did not know that! So how can we manage it efficiently?",
+                "resolved_utterance": "Wow, I did not know that! So how can we manage water resources efficiently?",
+                "response": "There are several ways to manage water resources efficiently. Some of these include reducing water pollution and contamination, treating polluted and contaminated water, augmenting freshwater supplies and/or increasing freshwater capacity, metering, measuring, and managing facility water use, optimizing cooling towers, replacing restroom fixtures, eliminating single-pass cooling, using water-smart landscaping and irrigation, controlling steam sterilizer water, reusing laboratory culture water and controlling reverse osmosis system operation. Other ways to sustainably use and manage water resources include increasing water efficiency, reducing water loss and leaks, reducing water waste, reducing direct and indirect water consumption and managing or restricting water withdrawals. As you want to incorporate water management strategies in your daily life, you could begin by wahing vegetables in a bowl instead of running them under a tap (which can waste up to nine litres a minute). You can save up to PS51 a year, plus soaking makes them easier to peel. Wait until you have a full load before running your washing machine or dishwasher. Cutting just one cycle a week will save over 5,000 litres of water and PS7 a year. Swapping a daily bath for a shower uses less than half as much water, saving you around PS50 a year.",
+                "ptkb_provenance": [
+                    4,
+                    8
+                ],
+                "response_provenance": [
+                    "clueweb22-en0012-77-18786:0",
+                    "clueweb22-en0032-77-15477:2",
+                    "clueweb22-en0032-77-15477:3",
+                    "clueweb22-en0040-67-14598:1",
+                    "clueweb22-en0040-67-14598:2",
+                    "clueweb22-en0040-67-14598:4"
+                ]
+            },
+            {
+                "turn_id": 4,
+                "utterance": "Thank you for that suggestion! Are there any specific technologies to aid in this?",
+                "resolved_utterance": "Thank you for that suggestion! Are there any specific technologies that can aid in water resource management?",
+                "response": "Yes, there are many technologies used in water resource management. For example, Remote Sensing and Geographic Information Systems (GIS) can help in mapping and analyzing water resources. Also, there are various water treatment technologies, like reverse osmosis and nanofiltration, that can help in wastewater treatment and desalination. As you would like to incorporate water management strategies in your life, you could also try a home reverse osmosis filter (membrane water purifiers) to make tap water of any quality absolutely safe. It's much more budget-friendly to install a reverse osmosis water purification system right in the kitchen under the sink than to buy bottled water. The cost of water you get at home is at least 10 times less.",
+                "ptkb_provenance": [
+                    4,
+                    7
+                ],
+                "response_provenance": [
+                    "clueweb22-en0023-54-02195:1",
+                    "clueweb22-en0000-08-18822:0"
+                ]
+            },
+            {
+                "turn_id": 5,
+                "utterance": "Thank you again for that suggestion! Now, I am curious about the various technologies you mentioned. Can you compare the last two technologies you mentioned?",
+                "resolved_utterance": "Thank you again for that suggestion! Now, I am curious about the various technologies you mentioned. Can you compare reverse osmosis and nanofiltration?",
+                "response": "I apologize but which ones are you talking about?",
+                "ptkb_provenance": [],
+                "response_provenance": []
+            },
+            {
+                "turn_id": 6,
+                "utterance": "I meant reverse osmosis and nanofiltration.",
+                "resolved_utterance": "I meant reverse osmosis and nanofiltration.",
+                "response": "I see. Sure, I can compare the two. Both reverse osmosis and nanofiltration use membranes with fine pores to remove contaminants from water. However, reverse osmosis (RO) membranes have much smaller pores (0.0001 microns) than nanofiltration (NF) membranes (0.001-0.01 microns), making them more effective at removing contaminants. Nanofiltration is great for removing microorganisms, suspended solids, and organic matter from water. On the other hand, reverse osmosis is ideal for targeting ions such as lead, chromium, or fluoride. Another key difference between the two is that nanofiltration wastes little or no water whereas reverse osmosis can waste up to 50% of the water being filtered. Nanofiltration also uses gravity or pressure from the mains water supply to filter water whereas reverse osmosis uses electricity.",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0040-07-01274:1"
+                ]
+            },
+            {
+                "turn_id": 7,
+                "utterance": "Thank you! Now, I am curious about GIS. How does it help?",
+                "resolved_utterance": "Thank you! Now, I am curious about GIS. How does Geographic Information Systems (GIS) help in water resource management?",
+                "response": "GIS is a tool that allows for the storage, analysis, and visualization of geographic data. In the context of water resource management, it can be used to map water sources, identify patterns of water usage, model water flow and quality, and predict the impacts of environmental changes on water resources. This information can support decision-making for water allocation, infrastructure planning, and conservation efforts. Geographic information Systems keep data and records about water sources. The data collected about water resources is stored on servers in different parts of the world. Some of the information is usually as a result of processing done on data collected by GIS. Huge amounts of data related to water resources can thus be stored for shared access with the help of GIS. Big externally launched geospatial satellites that are always on motion and rotating near the earth's atmosphere are integrated with GIS and then used to help in inter-continental data and information dissemination. The satellite provides wireless data access to all base stations that request for the geospatial data.",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0026-39-06728:1",
+                    "clueweb22-en0026-39-06728:2",
+                    "clueweb22-en0026-39-06728:3",
+                    "clueweb22-en0026-39-06728:4",
+                    "clueweb22-en0026-39-06728:5",
+                    "clueweb22-en0026-39-06728:6"
+                ]
+            },
+            {
+                "turn_id": 8,
+                "utterance": "Is it applied in every country?",
+                "resolved_utterance": "Is Geographic Information Systems (GIS) applied in every country for water resource management?",
+                "response": "GIS is a powerful tool for mapping the availability and demand of water resources. However, a significant challenge lies in data collection and analysis, particularly in developing and underdeveloped countries. Access to this kind of information and the expertise to utilize it effectively is limited. Despite advancements in research applications over the past two decades, there is still an underutilization of remotely sensed data by water resource managers in practice.",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0029-88-11856:0"
+                ]
+            },
+            {
+                "turn_id": 9,
+                "utterance": "That's helpful. Can you suggest any specific appliances?",
+                "resolved_utterance": "That's helpful. Can you suggest any specific water-efficient appliances?",
+                "response": "There are several budget-friendly water-efficient appliances and fixtures that you can use to save water at home. Some of these include dishwashers and clothes washing machines that use less water while yielding comparable performance. Popular fixtures include toilets, showerheads, and faucets.",
+                "ptkb_provenance": [
+                    4,
+                    8
+                ],
+                "response_provenance": [
+                    "clueweb22-en0021-37-09345:1"
+                ]
+            },
+            {
+                "turn_id": 10,
+                "utterance": "I'll consider those. Thank you for the information.",
+                "resolved_utterance": "I'll consider those. Thank you for the information.",
+                "response": "You're welcome! I'm glad I could help.",
+                "ptkb_provenance": [],
+                "response_provenance": []
+            }
+        ]
+    },
+    {
+        "number": "6-1",
+        "title": "Irritable bowel syndrome",
+        "ptkb": {
+            "1": "I am working professional who has been experiencing recurring digestive issues for the past few months.",
+            "2": "I take the train to my work.",
+            "3": "I often eat fruits, especially apples. I also eat a lot of meat and eggs.",
+            "4": "I mostly eat outside.",
+            "5": "I don't like fish.",
+            "6": "I spend a lot of time on my computer for work.",
+            "7": "I live in a place where it mostly rains.",
+            "8": ".",
+            "9": "I am open to exploring various treatment options, including both conventional medicine and alternative therapies.",
+            "10": "I lead a busy and often stressful life due to my demanding job."
+        },
+        "turns": [
+            {
+                "turn_id": 1,
+                "utterance": "Hello, I'm experiencing some digestive issues and I suspect it might be related to irritable bowel syndrome. Can you provide some information about it?",
+                "resolved_utterance": "Hello, I'm experiencing some digestive issues and I suspect it might be related to irritable bowel syndrome. Can you provide some information about irritable bowel syndrome?",
+                "response": "Certainly! Irritable bowel syndrome (IBS) is a common disorder that affects the large intestine. It's characterized by abdominal pain, bloating, cramping, and changes in bowel movements. These symptoms can vary from person to person and may include diarrhea, constipation, or both.",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0044-59-20481:1"
+                ]
+            },
+            {
+                "turn_id": 2,
+                "utterance": "Can you tell me about the causes and possible treatments?",
+                "resolved_utterance": "Can you tell me about the causes and possible treatments for IBS?",
+                "response": "The exact cause of IBS is unknown, but several factors may contribute to its development. These include abnormal muscle contractions in the intestines, increased sensitivity to pain in the digestive system, inflammation, and changes in gut bacteria. As you are open to exploring various treatment options, I suggest that you focus on dietary changes, stress reduction, medications to control diarrhea or constipation, and probiotics. It's important to consult with a healthcare professional for a proper diagnosis and personalized treatment plan.",
+                "ptkb_provenance": [
+                    10,
+                    9
+                ],
+                "response_provenance": [
+                    "clueweb22-en0001-86-14450:5",
+                    "clueweb22-en0023-13-06421:1",
+                    "clueweb22-en0045-36-03515:7"
+                ]
+            },
+            {
+                "turn_id": 3,
+                "utterance": "Thanks for that suggestion. Are there any specific foods I should avoid?",
+                "resolved_utterance": "Thanks for that suggestion. Are there any specific foods I should avoid if I have IBS?",
+                "response": "While triggers can vary from person to person, some common food triggers for IBS include fatty foods, spicy foods, alcohol, caffeine, carbonated drinks, and certain types of carbohydrates known as FODMAPs. Apples are high in both sorbitol and fructose, which are both FODMAPs (rapidly-fermented short-chain carbohydrates) that can trigger IBS symptoms. Three out of four people with IBS find that apples trigger their symptoms. Hence, I suggest you refrain from eating too many apples and eat other fruits. Eggs digest easily and are generally considered a safe choice for people with IBS. However, not every person's body responds to eggs the same way. Some people with IBS may be sensitive to the proteins in egg whites, while others may react to the higher fat content of egg yolks. As for meat, lean meats mainly consist of protein and digest easily. Lean protein such as white meat chicken, white meat turkey, lean pork, and lean cuts of beef (such as sirloin, filet, top round, eye round, and bottom round) are generally well-tolerated by people with IBS. It's recommended to keep a food diary to identify any specific foods that may worsen your symptoms. A healthcare professional or registered dietitian can help guide you in creating an individualized diet plan. Is there anything else you would like to know about IBS?",
+                "ptkb_provenance": [
+                    10
+                ],
+                "response_provenance": [
+                    "clueweb22-en0046-81-05663:2",
+                    "clueweb22-en0028-86-13803:1",
+                    "clueweb22-en0034-73-12413:0",
+                    "clueweb22-en0022-93-16260:3",
+                    "clueweb22-en0042-12-01632:1",
+                    "clueweb22-en0020-21-10694:1"
+                ]
+            },
+            {
+                "turn_id": 4,
+                "utterance": "Thanks! What else do you think could be causing it in me?",
+                "resolved_utterance": "Thanks! What other factors do you think could be causing IBS in me?",
+                "response": "Stress and anxiety can exacerbate IBS symptoms. Your busy and stressful life may be a reason for the symptoms you are having. Many people with IBS find that their symptoms worsen during times of increased stress or anxiety. Stress management techniques such as relaxation exercises, mindfulness meditation, regular physical activity, and counseling can be helpful in managing symptoms. It's important to address both the physical and emotional aspects of IBS. If you have any more questions or concerns, feel free to ask!",
+                "ptkb_provenance": [
+                    10
+                ],
+                "response_provenance": [
+                    "clueweb22-en0024-84-07951:4",
+                    "clueweb22-en0012-57-02279:0",
+                    "clueweb22-en0037-48-01657:1"
+                ]
+            },
+            {
+                "turn_id": 5,
+                "utterance": "Are there any medications available?",
+                "resolved_utterance": "Are there any medications available to help with IBS symptoms?",
+                "response": "Yes, there are several medications available to help with IBS symptoms. The choice of medication depends on the nature and severity of the symptoms. Antispasmodic drugs such as alverine citrate, mebeverine hydrochloride, and peppermint oil can be taken in addition to dietary and lifestyle changes. A laxative can be used to treat constipation, while loperamide hydrochloride is the first-line choice of anti-motility drug for relief of diarrhea. A low-dose tricyclic antidepressant, such as amitriptyline hydrochloride, can be used for abdominal pain or discomfort as a second-line option in patients who have not responded to antispasmodics, anti-motility drugs, or laxatives. Is there anything else you would like to know?",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0010-29-03436:2",
+                    "clueweb22-en0010-29-03436:3",
+                    "clueweb22-en0010-29-03436:4",
+                    "clueweb22-en0012-03-06027:4",
+                    "clueweb22-en0004-27-10457:1",
+                    "clueweb22-en0017-66-08370:0"
+                ]
+            },
+            {
+                "turn_id": 6,
+                "utterance": "Can it be cured or is it a lifelong condition?",
+                "resolved_utterance": "Can IBS be cured or is it a lifelong condition?",
+                "response": "Currently, there is no known cure for IBS. However, with proper management and lifestyle changes, it is possible to control and reduce the frequency and severity of symptoms. Each individual's experience with IBS can vary, and some people may find their symptoms improve over time. It's important to work closely with a healthcare professional to develop a personalized treatment plan that addresses your specific needs. However, as you are open to both conventional medicine and alternative therapies, would you like me to give you more information on alternative therapies?",
+                "ptkb_provenance": [
+                    9
+                ],
+                "response_provenance": [
+                    "clueweb22-en0019-45-19217:0",
+                    "clueweb22-en0038-00-13406:0",
+                    "clueweb22-en0045-36-03515:7"
+                ]
+            },
+            {
+                "turn_id": 7,
+                "utterance": "Yes please!",
+                "resolved_utterance": "Yes, please tell me about any alternative therapies or complementary approaches that may help with IBS.",
+                "response": "Some individuals with IBS find that certain alternative therapies or complementary approaches can provide symptom relief. These may include acupuncture, herbal supplements, probiotics, and mind-body techniques such as hypnotherapy or cognitive-behavioral therapy (CBT). However, it's important to note that the effectiveness of these approaches can vary from person to person, and scientific evidence supporting their use for IBS is limited. It's always advisable to consult with a healthcare professional before trying any alternative therapies. If you have any more questions, feel free to ask!",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0017-94-04237:1",
+                    "clueweb22-en0017-94-04237:2",
+                    "clueweb22-en0017-94-04237:4",
+                    "clueweb22-en0017-94-04237:9",
+                    "clueweb22-en0024-00-14813:5"
+                ]
+            },
+            {
+                "turn_id": 8,
+                "utterance": "Thanks for that detailed answer. Now, can it increase the risk of developing other health conditions?",
+                "resolved_utterance": "Thanks for that detailed answer. Now, can IBS increase the risk of developing other health conditions?",
+                "response": "People with IBS may also have other health problems such as chronic pain, digestive diseases, and mental disorders. Two out of every three people with IBS also have conditions that affect their joints, muscles, and bones, called rheumatic diseases.",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0031-37-15604:1",
+                    "clueweb22-en0023-60-08590:2",
+                    "clueweb22-en0014-09-09050:1"
+                ]
+            },
+            {
+                "turn_id": 9,
+                "utterance": "Thank you for the information. I will consult with my doctor for further guidance.",
+                "resolved_utterance": "Thank you for the information. I will consult with my doctor for further guidance.",
+                "response": "Sure, I hope you feel better soon.",
+                "ptkb_provenance": [],
+                "response_provenance": []
+            }
+        ]
+    },
+    {
+        "number": "7-1",
+        "title": "Dating tips",
+        "ptkb": {
+            "1": "I usually like to wear casual clothes.",
+            "2": "I come from a culture where dating is not very common.",
+            "3": "I am comfortable with technology and online shopping.",
+            "4": "I enjoy social gatherings.",
+            "5": "I am a nervous person.",
+            "6": "I am a 25-year-old man looking for tips for going on my first date."
+        },
+        "turns": [
+            {
+                "turn_id": 1,
+                "utterance": "Hello, I am looking for tips for going on my first date. How do I prepare?",
+                "resolved_utterance": "Hello, I am looking for tips for going on my first date. How do I prepare for the date?",
+                "response": "That's very exciting! I can help you here. Preparing for a date involves a few key steps. First, decide on the location or activity that suits both of your interests. Then, plan your outfit carefully. Dress appropriately for the occasion while being comfortable and true to your style. Additionally, as you are a nervous person, it's a good idea to think about possible topics for conversation to avoid awkward silences. Finally, be mentally prepared to engage, listen, and show genuine interest in your date.",
+                "ptkb_provenance": [
+                    5
+                ],
+                "response_provenance": [
+                    "clueweb22-en0018-64-07587:4",
+                    "clueweb22-en0018-64-07587:1"
+                ]
+            },
+            {
+                "turn_id": 2,
+                "utterance": "Thanks for those suggestions. Can you give me some good clothing options?",
+                "resolved_utterance": "Thanks for those suggestions. Can you give me some good clothing options for my first date?",
+                "response": "The clothes you wear should match the location and nature of the date. For a classic dinner and a movie date, you'll know to dress in nicer, fancier clothes. Don't forget to discuss exactly where dinner will be, so that you can gauge how dressy you need to be. For a hiking date, casual jeans and a t-shirt or gym clothes are perfectly acceptable first date wear! Remember, the goal is to be comfortable and feel confident in what you're wearing.",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0031-34-00062:1"
+                ]
+            },
+            {
+                "turn_id": 3,
+                "utterance": "Sorry, that was not was I was looking for. I meant specific combinations of clothes that I can wear.",
+                "resolved_utterance": "Sorry, that was not was I was looking for. I meant specific combinations of clothes that I can wear for my first date.",
+                "response": "I apologize for the confusion. Since you usually like to wear casual clothes, I suggest you wear a dark-wash jeans in black or deep indigo. They strike a nice balance and can be paired with anything from a short-sleeved collared shirt to a dress shirt and sports jacket. Tuck in your shirt (unless your date is in Ocean Beach) and match a casual leather belt with a pair of similarly colored leather shoes. And leave the running shoes for when you are running. Dinners dates and other evening events in an urban setting usually mean you should wear a jacket. For evenings or events that do not require a suit, look to a blazer jacket; if you're going to be out during the day and want something more casual, a sport jacket is always a flattering option.",
+                "ptkb_provenance": [
+                    6,
+                    1
+                ],
+                "response_provenance": [
+                    "clueweb22-en0034-18-01423:7",
+                    "clueweb22-en0031-98-03927:3"
+                ]
+            },
+            {
+                "turn_id": 4,
+                "utterance": "Thanks! Now, what could I potentially talk about?",
+                "resolved_utterance": "Thanks! Now, what could I potentially talk about on my date?",
+                "response": "Happy to help! Regarding topics to talk about, there are many things that you can talk about on a first date. Here are some tips that might help you: Ask open-ended questions that reveal something about your date, such as their hobbies, memories, talents, or goals. Show curiosity and interest in their responses, but don't be too intrusive or personal. Share details about your own life and experiences, but don't dominate the conversation or brag. Try to make a connection by finding common ground or expressing appreciation for their perspective. Avoid topics that are too controversial, negative, or boring, such as politics and religion. I know that you are usually nervous, and come from a culture where dating is not common, so here are some good questions to get the conversation started on your first date: Given the choice of anyone in the world, who would you want as a dinner guest? What's your most treasured memory? What would constitute a perfect day for you?",
+                "ptkb_provenance": [
+                    6,
+                    5,
+                    2
+                ],
+                "response_provenance": [
+                    "clueweb22-en0028-21-09468:6",
+                    "clueweb22-en0017-23-06458:6"
+                ]
+            },
+            {
+                "turn_id": 5,
+                "utterance": "Thanks! Can you give more examples?",
+                "resolved_utterance": "Thanks! Can you give more examples of questions to ask on a first date?",
+                "response": "Sure! Here are some examples: (1) What are you most passionate about? Showing an interest in your date's passions never fails to jump-start a conversation. Not only does it give you the opportunity to learn more about your date, but it also gives you a chance to share your own passions. And when two people can share their passions, it never fails to forge a connection between them. (2) What would your ideal weekend look like? This is a great question for finding out what things they value and activities they enjoy. This query can launch a good back-and-forth dialogue, especially if you share some of the same interests. (3) What is a typical day like for you? If you want to avoid asking the same boring questions to ask on the first date, this is a clever way to learn about their career without actually asking about it. But you'll also get the chance to learn what else they do each day. Do they go to the gym? Walk their dog? (4) What would your dream vacation be? Rather than asking what their last vacation was, this question has the ability to launch a passionate discussion about the future. It's also a safer question to ask. What if your date isn't well-traveled or hasn't been on vacation in years? This helps to avoid those awkward silences that can really kill the vibe. (5) What was the most interesting part of your day today? Far better than the standard \"how was your day\" questions, this dating question will force your date into more than an \"it was fine\" response. It also gives you some insight into what interests them most. Be prepared to relay something interesting from your day as well.",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0022-62-02456:3",
+                    "clueweb22-en0022-62-02456:4",
+                    "clueweb22-en0022-62-02456:5",
+                    "clueweb22-en0022-62-02456:6",
+                    "clueweb22-en0022-62-02456:7"
+                ]
+            },
+            {
+                "turn_id": 6,
+                "utterance": "Thanks, they are really helpful! Can you tell me more about what I should avoid?",
+                "resolved_utterance": "Thanks, they are really helpful! Can you tell me more about what I should avoid doing on my first date?",
+                "response": "Sure! For the first date, conversation topics you should generally avoid are politics, religion, sex, your ex, money, and/or your \"must-have\" list. You want to keep it relaxed and smooth. You can delve into these topics later if the relationship moves forward. Asking in-depth questions about your date's exes and other past relationship details on the first date is a recipe for failure according to psychologist Samantha Rodman. This is a date, not an interrogation. Keep it light and engaging, and as the conversation flows you will be able to get to know your date better and better.",
+                "ptkb_provenance": [
+                    6,
+                    5,
+                    2
+                ],
+                "response_provenance": [
+                    "clueweb22-en0017-23-06458:5"
+                ]
+            },
+            {
+                "turn_id": 7,
+                "utterance": "Thanks, that makes sense. Now, I keep hearing about the 14th of February from my friends. What is the significance of this day?",
+                "resolved_utterance": "Thanks, that makes sense. Now, I keep hearing about the 14th of February from my friends. What is the significance of 14th February?",
+                "response": "February 14th is celebrated as Valentine's Day, also known as St. Valentine's Day, around the world. It is a special time of the year when people show their affection for another person or people by sending cards, flowers, or chocolates with messages of love. The origins of Valentine's Day are not clear, but it is believed to have originated as a Christian feast day honoring a martyr named Valentine, and through later folk traditions, it has also become a significant cultural, religious, and commercial celebration of romance and love in many regions of the world.",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0031-75-10422:1"
+                ]
+            },
+            {
+                "turn_id": 8,
+                "utterance": "Wow, that sounds interesting! Tell me more about him.",
+                "resolved_utterance": "Wow, that sounds interesting! Tell me more about St. Valentine.",
+                "response": "Officially recognized by the Roman Catholic Church, St. Valentine is known to be a real person who died around A.D. 270. However, his true identity was questioned as early as A.D. 496 by Pope Gelasius I, who referred to the martyr and his acts as \"being known only to God.\" By some accounts, St. Valentine was a Roman priest and physician who suffered martyrdom during the persecution of Christians by the emperor Claudius II Gothicus about 270. Valentine's Day as a lovers' festival dates at least from the 14th century. On February 14, around the year 270 A.D., Valentine, a holy priest in Rome in the days of Emperor Claudius II, was executed.",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0041-91-06853:4",
+                    "clueweb22-en0004-60-02738:0"
+                ]
+            },
+            {
+                "turn_id": 9,
+                "utterance": "Interesting! Thanks for that information. How do people celebrate?",
+                "resolved_utterance": "Interesting! Thanks for that information. How do people celebrate Valentine's Day?",
+                "response": "Happy to help! Usually, people give gifts to their partners, go on dates, and celebrate with friends. As you enjoy social gatherings, you might like to know that people often throw parties on this day. These parties can range from intimate gatherings with close friends to large events with music, dancing, and other festivities.",
+                "ptkb_provenance": [
+                    4
+                ],
+                "response_provenance": [
+                    "clueweb22-en0025-78-18667:6"
+                ]
+            },
+            {
+                "turn_id": 10,
+                "utterance": "What kind of things do people give that day?",
+                "resolved_utterance": "What kind of gifts do people give on 14th February?",
+                "response": "On Valentine's Day, people often give gifts that express their affection. Common gifts include flowers, especially roses, chocolates, and cards. Some people also choose to give more personal gifts like jewelry, custom-made items, or experiences like a romantic dinner or a trip. As you are comfortable with online shopping, you might want to look into some online shopping websites such as Amazon.com.",
+                "ptkb_provenance": [
+                    3
+                ],
+                "response_provenance": [
+                    "clueweb22-en0044-83-00461:2",
+                    "clueweb22-en0027-88-14369:2"
+                ]
+            },
+            {
+                "turn_id": 11,
+                "utterance": "Thanks! But I'm not sure what would be appropriate. Can you help me decide?",
+                "resolved_utterance": "Thanks! But I'm not sure what gift would be appropriate. Can you help me decide?",
+                "response": "Sure, I'd be happy to help! Could you provide some information about the person you're planning to give the gift to? For instance, their likes, interests, or hobbies?",
+                "ptkb_provenance": [],
+                "response_provenance": []
+            },
+            {
+                "turn_id": 12,
+                "utterance": "She loves reading and traveling. She's also a big fan of classic movies.",
+                "resolved_utterance": "She loves reading and traveling. She's also a big fan of classic movies.",
+                "response": "Given her interests, you might consider gifting her a book from a genre she loves, or a novel set in a location she's always wanted to visit. For the classic movie fan in her, consider a personalized movie marquee print with information on her favorite movie. It's the perfect addition to any movie watcher's home -- and a romantic keepsake. Another thoughtful gift could be a quiz set that includes head-scratching questions on everything from geography and culture to history, wildlife, famous landmarks, and more.",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0036-66-13540:2",
+                    "clueweb22-en0015-55-06426:2",
+                    "clueweb22-en0028-21-09708:2"
+                ]
+            },
+            {
+                "turn_id": 13,
+                "utterance": "Thanks! You've been really helpful. One last thing, any tips on how to be less nervous?",
+                "resolved_utterance": "Thanks! You've been really helpful. One last thing, any tips on how to be less nervous for my first date?",
+                "response": "It's normal to feel a bit nervous before a date. Try some deep breathing exercises or a quick workout to relieve stress. Visualize positive scenarios to boost your confidence. And remember, it's not a performance, but an opportunity to get to know each other better. Be yourself, listen attentively, and enjoy the moment.",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0012-27-03404:3",
+                    "clueweb22-en0044-36-10260:9"
+                ]
+            },
+            {
+                "turn_id": 14,
+                "utterance": "Thank you for all the amazing tips!",
+                "resolved_utterance": "Thank you for all the amazing tips!",
+                "response": "Good luck! I am sure you will do great!",
+                "ptkb_provenance": [],
+                "response_provenance": []
+            }
+        ]
+    },
+    {
+        "number": "8-1",
+        "title": "How to start my own business?",
+        "ptkb": {
+            "1": "I don't know much about running a business.",
+            "2": "I like to learn about people and their culture.",
+            "3": "I care about customer service and providing the best experience.",
+            "4": "I know people who can support me financially and otherwise in my venture.",
+            "5": "I like to eat meat and eggs.",
+            "6": "I usually go for a hike during weekends.",
+            "7": "I want to start my own business in the UK.",
+            "8": "I travel to work using my car.",
+            "9": "I like music and social gatherings."
+        },
+        "turns": [
+            {
+                "turn_id": 1,
+                "utterance": "Hi there! I'm really excited about starting my own business. Can you help me get started?",
+                "resolved_utterance": "Hi there! I'm really excited about starting my own business. Can you help me get started?",
+                "response": "Of course! I'd be happy to help you get started with your own business. You could consider starting an event planning business. It would allow you to combine your passion for customer service, music, and social gatherings. You could help people plan and organize memorable events like parties, weddings, or corporate functions. What do you think?",
+                "ptkb_provenance": [
+                    3,
+                    9
+                ],
+                "response_provenance": []
+            },
+            {
+                "turn_id": 2,
+                "utterance": "That sounds intriguing! Are there any specific steps I should follow?",
+                "resolved_utterance": "That sounds intriguing! Are there any specific steps I should follow to get started with an event planning business?",
+                "response": "Absolutely! Here are some steps you can take to get started with your event planning business: 1. Research and identify your target market. 2. Define your services and pricing structure. 3. Create a business plan outlining your goals, strategies, and financial projections. 4. Register your business and obtain any necessary licenses or permits. 5. Build a network of vendors and suppliers who can support your events. 6. Develop a strong online presence through a website and social media platforms. 7. Market your services to attract clients. Remember, learning from experienced event planners and attending industry conferences can also be valuable. Does that help?",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0004-84-11201:1",
+                    "clueweb22-en0026-65-11765:1"
+                ]
+            },
+            {
+                "turn_id": 3,
+                "utterance": "Thank you for the helpful steps! Can you tell me about the third step?",
+                "resolved_utterance": "Thank you for the helpful steps! Can you tell me about the financial projection step?",
+                "response": "You're welcome! Securing funds for your business can be done in several ways. Since you have people who can support you financially, you could approach them for investments or loans. You can seek funding from an angel investor in exchange for equity in your business or a loan. You might also consider applying for small business loans from banks or exploring government-backed financing programs. Additionally, creating a detailed business plan with your financial projections can help",
+                "ptkb_provenance": [
+                    4
+                ],
+                "response_provenance": [
+                    "clueweb22-en0041-27-01591:1",
+                    "clueweb22-en0041-27-01591:3",
+                    "clueweb22-en0026-65-11765:2"
+                ]
+            },
+            {
+                "turn_id": 4,
+                "utterance": "Can you compare the third and fourth options?",
+                "resolved_utterance": "Can you compare business loans from banks and government-backed financing programs?",
+                "response": "Sure! Business loans from banks and government-backed financing programs can both provide funding for starting a business. However, there are some differences between the two. Business loans from banks are provided by commercial banks and other lenders. The bank will review your business plan and credit history to determine if you are eligible for a loan. The loan will need to be repaid with interest. Government-backed financing programs, on the other hand, are funded or guaranteed by the government. These programs can provide loans to new and existing business owners. For example, in the UK, you can apply for a government-backed Start Up Loan of PS500 to PS25,000 to start or grow your business. This is an unsecured personal loan and you'll need to pass a credit check. Successful applicants also get free support and guidance to help write their business plan and up to 12 months of free mentoring.",
+                "ptkb_provenance": [
+                    4
+                ],
+                "response_provenance": [
+                    "clueweb22-en0027-21-04110:4",
+                    "clueweb22-en0013-66-06006:0"
+                ]
+            },
+            {
+                "turn_id": 5,
+                "utterance": "Thanks! That's very helpful! Now, how can I do it more efficiently?",
+                "resolved_utterance": "Thanks! That's very helpful! Now, how can I manage and organize my business more efficiently?",
+                "response": "Absolutely! There are several tools and software available that can streamline your event planning processes. Some popular ones include Eventbrite, which can help you handle registrations, ticketing, and attendee management. Tools such as Trello or Jira can assist you in managing tasks, deadlines, and team collaboration.",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0026-57-05063:2",
+                    "clueweb22-en0025-54-20130:3"
+                ]
+            },
+            {
+                "turn_id": 6,
+                "utterance": "Thank you so much for all the valuable information and guidance! Can you compare the last two options?",
+                "resolved_utterance": "Thank you so much for all the valuable information and guidance! Can you compare Trello and Jira?",
+                "response": "Sure! Choosing the right agile project management tool can be a daunting task with so many decent options out there. When it comes down to it, the two most popular platforms for agile project management in are Trello and Jira. Both are now owned by Atlassian, but they have different strengths and use cases, so it's still worth comparing which is the best tool for your team and project. Cost: Jira is free for up to 10 users, with paid plans starting at $7.50 per user. By contrast, the basic version of Trello is free forever with unlimited users, and its paid plans start a little cheaper, at $5 per user. Complexity: Jira is designed especially for agile project management and is much more complex than Trello, requiring a steep learning curve for new users. Its main features are Kanban boards, Sprints, access controls and reports. Meanwhile, Trello is much more simple to use and is adaptable to different use cases. The Kanban-style software can be customized to your needs using Power-Ups which offer similar functionalities to Jira. For example, Blue Cat Reports on Trello will allow you to create beautiful, informative reports to help you understand and improve your workflow. Target users: Jira is mainly used by software developers, engineers, and product managers in mid-market and enterprise organisations, and its pricing reflects this.",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0007-15-18806:1"
+                ]
+            },
+            {
+                "turn_id": 7,
+                "utterance": "Thanks! Now, what do you have to say about customer satisfaction?",
+                "resolved_utterance": "Thanks! Now, what do you have to say about customer satisfaction?",
+                "response": "Happy to help! As you care about customer service and providing exceptional customer service, here are a three top-tips to excel in that area: (1) Be friendly. The most important rule in providing excellent customer service is to be friendly. Try to greet customers with a smile and always be courteous and respectful. Be proactive by paying attention to the customer's needs and offering help or recommendations before they ask. It is important to always remain kind and empathetic to your customer, even through stressful or contentious situations when customers appear disappointed or angry. (2) Respond promptly Another factor in good customer service involves the timeliness of your responses. Customers appreciate a speedy response to their inquiries, especially when they have a time-sensitive request. For good customer service, try to return all phone calls and emails within 24 hours. Let customers know how long it will take you to assist them. (3) Know your product or service To offer your customers excellent service, you should know every aspect of the product or service you are selling.",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0018-85-05005:2"
+                ]
+            },
+            {
+                "turn_id": 8,
+                "utterance": "Those are excellent points, thanks! Now, what should I consider while making a plan?",
+                "resolved_utterance": "Those are excellent points, thanks! Now, what should I consider while making a business plan?",
+                "response": "When creating a business plan, there are several things you should consider: 1) Executive Summary: Briefly tell your reader what your company is and why it will be successful. You should also present the company's mission, describe the product or service, and summarize the target market and the industry competition. 2) Company Description: Include your business's registered name, your business address, and any key employees involved in the business. The business description should also include the structure of your business, such as sole proprietorship, limited liability company (LLC), partnership, or corporation.3) Market Research: Conduct market research to understand your target market and the industry competition. 4) Product or Service: Describe your product or service in detail, including its features and uses. 5) Financial Plans: Include information about your company's financial situation and growth plans.",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0029-26-13521:3",
+                    "clueweb22-en0029-26-13521:4",
+                    "clueweb22-en0029-26-13521:5"
+                ]
+            },
+            {
+                "turn_id": 9,
+                "utterance": "Yes, I'm unsure about the third step.",
+                "resolved_utterance": "Yes, I'm unsure about the market research step.",
+                "response": "Market research is the process of gathering information about your target market and customers to verify the success of a new product, help your team iterate on an existing product, or understand brand perception to ensure your team is effectively communicating your company's value effectively. Here are some steps you can follow to conduct market research: The marketing research process involves several steps to gather and analyze data effectively. 1) Determine the needed information: Clearly define the objectives and information requirements of the research study. 2) Conduct a preliminary investigation: Gather initial data from secondary sources such as internal company records, government documents, marketing research firms, trade associations, and published sources. Conduct interviews or observations with people inside or outside the firm to gain insights. 3) Weigh the costs and benefits of formal research: Evaluate whether conducting formal research is necessary and justified based on the available information. Consider the costs involved in data collection, analysis, interpretation, and reporting. 4) Develop the research design: Plan the details of the research study, including the data collection method (survey, observation, or experiment), respondent selection, and sample size determination. 5) Develop the questionnaire or data collection forms: Design the questionnaire or other forms to gather data, considering question types (open-ended, multiple choice, dichotomous), question sequencing, and questionnaire design. 6) Conduct the formal study: Implement the research plan by collecting data according to the chosen method and administering the questionnaire or data collection forms. 7) Analyze the data and report the results: Process and analyze the collected data using appropriate statistical techniques. Interpret the findings and prepare a comprehensive report presenting the results and insights gained from the research. 8) These steps help ensure a systematic and unbiased approach to marketing research, enabling managers to make informed decisions based on reliable information. As you said you know people who can support you in your business, do you know someone who can help you with doing market research?",
+                "ptkb_provenance": [
+                    4
+                ],
+                "response_provenance": [
+                    "clueweb22-en0042-81-04766:1",
+                    "clueweb22-en0029-60-03194:1",
+                    "clueweb22-en0029-60-03194:2",
+                    "clueweb22-en0029-60-03194:3",
+                    "clueweb22-en0029-60-03194:4"
+                ]
+            },
+            {
+                "turn_id": 10,
+                "utterance": "Actually, I do have a friend who can probably help me with market research. She is a business major and very smart. Now, could you give me an overview of the permits and licenses I would need?",
+                "resolved_utterance": "Actually, I do have a friend who can probably help me with market research. She is a business major and very smart. Now, could you give me an overview of the permits and licenses I would need to start my own business?",
+                "response": "If you're planning to start an event planning business in the UK, you may need several licenses and permits: (1) Business Operating License: Required to legally operate your business in your city or county. (2) Event License: Required for events held on or impacting the public highway. (3) Music License: Necessary if you plan to play or stage live or recorded music. (4) Public Space Surveillance (CCTV) License: Needed if you use CCTV equipment to monitor public activities. (5) Discharge of Trade Effluent Permit: Required if your business discharges effluent that could harm the environment. (6) Pollution Inventory Reporting: Some businesses are required to report annual emissions of certain substances. (7) Food Business Registration: Mandatory if your business involves handling food in any way. (8) Premises License: Required for businesses conducting activities like selling alcohol, serving hot food, hosting live music, etc. (9) Temporary Events Notice: Required for temporary licensable activities on unlicensed premises. Always check with your local government for the specific permits and licenses required for your business.",
+                "ptkb_provenance": [
+                    7
+                ],
+                "response_provenance": [
+                    "clueweb22-en0035-44-12597:3",
+                    "clueweb22-en0035-44-12597:4",
+                    "clueweb22-en0035-44-12597:5",
+                    "clueweb22-en0035-44-12597:6",
+                    "clueweb22-en0035-44-12597:7",
+                    "clueweb22-en0035-44-12597:8",
+                    "clueweb22-en0035-44-12597:9"
+                ]
+            },
+            {
+                "turn_id": 11,
+                "utterance": "What about hiring and training staff? Any tips there?",
+                "resolved_utterance": "What about hiring and training staff? Any tips on hiring and training staff?",
+                "response": "Hiring and training staff is an important part of running an event planning business. Here are some tips for hiring and training staff for your event planning business: 1) Understand the regulations with hiring event staff: Make sure you understand the regulations and laws related to hiring staff. 2) Know your event budget: Make sure you know your event budget and how much you can afford to spend on staff. 3) Ask for recommendations from colleagues: Ask colleagues and other professionals in the industry for recommendations on good candidates. 4) Thoroughly interview and vet candidates: Make sure you thoroughly interview and vet candidates before hiring them.",
+                "ptkb_provenance": [],
+                "response_provenance": [
+                    "clueweb22-en0027-71-01852:0",
+                    "clueweb22-en0027-71-01852:1",
+                    "clueweb22-en0027-71-01852:2",
+                    "clueweb22-en0027-71-01852:6",
+                    "clueweb22-en0027-71-01852:7"
+                ]
+            },
+            {
+                "turn_id": 12,
+                "utterance": "That's very helpful, thank you. Tell me more about the first step.",
+                "resolved_utterance": "That's very helpful, thank you. Tell me more about the regulations for hiring event staff.",
+                "response": "When hiring event staff for your event planning business in the UK, it's important to understand the regulations and laws related to hiring staff. If you plan on hiring individuals, make sure you sign a contract with each person. If you're planning a destination event, get familiar with local rules and regulations that pertain to hiring event staff. You can also consider signing a contract with an event staffing company. They can help you understand the regulations and rules better. Would you like more information on this topic?",
+                "ptkb_provenance": [
+                    7
+                ],
+                "response_provenance": [
+                    "clueweb22-en0027-71-01852:1"
+                ]
+            },
+            {
+                "turn_id": 13,
+                "utterance": "I think I am all set for now. All the information you provided has been very helpful. appreciate it!",
+                "resolved_utterance": "I think I am all set for now. All the information you provided has been very helpful. appreciate it!",
+                "response": "I'm pleased to hear that you found the information helpful! Best of luck with your event planning business, and remember, I'm here to help with any more questions you may have in the future. Take care!",
+                "ptkb_provenance": [],
+                "response_provenance": []
+            }
+        ]
+    }
+]
