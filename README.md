@@ -11,7 +11,7 @@ The iKAT aims to focus on supporting multi-path, multi-turn, multi-perspective c
 
 This is the first year of iKAT which will run as a task in TREC. This year we focus on generating personalized responses. 
 The personal information of the user is provided in the Personalized Text Knowledge Base (PTKB) which is a set of natural language sentences. 
-The PTKB of the user is provided at the beging of the conversation to the system. 
+The PTKB of the user is provided at the beginning of the conversation to the system. 
 To generate a personalized response, the system should undertake the following main steps:
 
 <ul>
