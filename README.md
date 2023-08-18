@@ -24,17 +24,19 @@ The relevant PTKB statements from the second step would be used in the next step
 
 <h1>Year 1 (iKAT 2023)</h1>
 <h2>Data</h2>
+
 <h3>Topics</h3>
 The test and train topics can be found <a href="https://github.com/irlabamsterdam/iKAT/tree/main/2023/data">here</a>.
+
 <h3>Collection</h3>
 The collection is a subset of the ClueWeb22 dataset. The collection distribution is being handled directly by CMU and not the iKAT organizers. Please follow these steps to get your data license ASAP:
-
+<br>
 <ul>
   <li>Sign the license form available on the ClueWeb22 project web page.</li>
   <li>Send the form to CMU for approval (jlm4@andrew.cmu.edu)</li>
 </ul>
 Please give enough time to the CMU licensing office to accept your request. A download link will be sent to you by the ClueWeb22 team at CMU.
-
+<br>
 Note:
 
 <ul>
