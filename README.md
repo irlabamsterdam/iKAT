@@ -59,7 +59,7 @@ The guideline for participants of iKAT can be found <a href="https://docs.google
 <h2>Contact</h2>
 <ul>
   <li>Twitter: @trec_ikat</li>
-  <li>Email: <a href="trec.ikat.ai@gmail.com">trec.ikat.ai@gmail.com</a></li>
+  <li>Email: <a href="">trec.ikat.ai@gmail.com</a></li>
   <li>Google Groups: trec-ikat@googlegroups.com</li>
   <li>Slack: <a href="https://app.slack.com/client/TEAQCDVSA/C04QPBXNL01">ikat-2023</a></li>
 </ul>
