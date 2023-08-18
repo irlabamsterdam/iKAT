@@ -29,5 +29,6 @@ The relevant PTKB statements from the second step would be used in the next step
 <h3>Baslines</h3>
 
 <h2>Guidelines</h2>
+The guideline for participants of iKAT can be found <a href="https://docs.google.com/document/d/1dso0VANm5Q08UWt4ppZvzvH6zkpRhfoukwpBgeJNbHE/edit#heading=h.wtcnmcfjg1h">here</a>.
 <h2>Contact</h2>
 <h2>Organizers</h2>
