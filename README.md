@@ -21,3 +21,13 @@ To generate a personalized response, the system should undertake the following m
 </ul>
 
 The relevant PTKB statements from the second step would be used in the next step. 
+
+<h1>Year 1 (iKAT 2023)</h1>
+<h2>Data</h2>
+<h3>Topics</h3>
+<h3>Corpora</h3>
+<h3>Baslines</h3>
+
+<h2>Guidelines</h2>
+<h2>Contact</h2>
+<h2>Organizers</h2>
