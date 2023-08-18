@@ -20,3 +20,4 @@ To generate a personalized response, the system should undertake the following m
   <li>Extract or generate a response: Each response can be generated from multiple passages. It can be an abstractive or extractive summary of the corresponding passages. Each response must have one or more ranked passages as provenance used to produce it.</li>
 </ul>
 
+The relevant PTKB statements from the second step would be used in the next step. 
