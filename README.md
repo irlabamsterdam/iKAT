@@ -31,4 +31,23 @@ The relevant PTKB statements from the second step would be used in the next step
 <h2>Guidelines</h2>
 The guideline for participants of iKAT can be found <a href="https://docs.google.com/document/d/1dso0VANm5Q08UWt4ppZvzvH6zkpRhfoukwpBgeJNbHE/edit#heading=h.wtcnmcfjg1h">here</a>.
 <h2>Contact</h2>
+<ul>
+  <li>Twitter: @trec_ikat</li>
+  <li>Email: trec.ikat.ai@gmail.com</li>
+  <li>Google Groups: trec-ikat@googlegroups.com</li>
+  <li>Slack: ikat-2023</li>
+</ul>
 <h2>Organizers</h2>
+<ul>
+  <li>Mohammad Aliannejadi, University of Amsterdam</li>
+  <li>Zahra Abbasiantaeb, University of Amsterdam</li>
+  <li>Shubham Chatterjee, University of Glasgow</li>
+  <li>Jeff Dalton, University of Glasgow</li>
+  <li>Leif Azzopardi, University of Strathclyde</li>
+</ul>
+
+
+
+
+
+
