@@ -1,68 +1,80 @@
-# ikat-scripts
+<h1>TREC Interactive Knowledge Assistance Track (iKAT)</h1>
 
-Scripts for TREC iKAT 2023: https://www.trecikat.com/
+The iKAT builds on the experience of four successful years of the TREC Conversational Assistance Track (CAsT), 
+where the key focus of iKAT is on researching and developing collaborative information seeking conversational agents 
+which can tailor and personalize their response based on what they learn about and from the user.
 
-## Running the scripts
+The fourth year of CAsT aimed to add more conversational elements to the interaction streams, by introducing mixed initiatives 
+(clarifications, and suggestions) to create multi-path, multi-turn conversations for each topic. 
+TREC iKAT evolves CAsT into a new track to signal this new trajectory. 
+The iKAT aims to focus on supporting multi-path, multi-turn, multi-perspective conversations, i.e., for a given topic, the direction and the conversation that evolves depends not only on the prior responses but also on the user (and their background/perspective/context/etc). As different personas undertake various topics, systems need to build and develop a picture of who the user is, in order to best address their information needs. Put another way, iKAT focuses on a system understanding of user knowledge and information needs in accordance with the available context.
 
-The `ikat_tools.py` script has 3 modes:
+This is the first year of iKAT which will run as a task in TREC. This year we focus on generating personalized responses. 
+The personal information of the user is provided in the Personalized Text Knowledge Base (PTKB) which is a set of natural language sentences. 
+The PTKB of the user is provided at the beginning of the conversation to the system. 
+To generate a personalized response, the system should undertake the following main steps:
 
-### 1. Segmenting the original collection
+<ul>
+  <li>Read the current dialogue turns up to the given turn (context): The provided context is: (1) A fixed set of previous responses with provenance in the preceding turns up to the current step, and (2) PTKB of the user. (Note: Using information from following turns is not allowed.)</li>
+  <li>Find the relevant statements from PTKB to the information needed for this turn: This task is considered a relevance score prediction. The output is in the form of a sorted list of statements from PTKB with corresponding relevance scores.</li>
+  <li>Extract or generate a response: Each response can be generated from multiple passages. It can be an abstractive or extractive summary of the corresponding passages. Each response must have one or more ranked passages as provenance used to produce it.</li>
+</ul>
 
-This will generate passages from the original collection, storing them into `.jsonl` (and optionally `.trecweb`) files while also computing a set of passages hashes.
+The relevant PTKB statements from the second step would be used in the next step. 
 
-Usage:
-```bash
-# run the segmentation using 16 worker processes. /path/to/save/results will end up containing
-# multiple files from each worker:
-#   worker_XX.jsonl : passages in JSONL format (compatible with JSONCollection in pyserini/anserini)
-#   worker_XX.trecweb : passages in trecweb format (if enabled, use "-t" parameter to do this)
-#   worker_XX_hashes.tsv : passage hashes, row format is [ClueWeb22-ID, passage ID, passage hash (MD5)]
-python ikat_tools.py segment -i /path/to/collection -o /path/to/save/results -w 16
-```
+<h1>Year 1 (iKAT 2023)</h1>
+<h2>Data</h2>
 
-## 2. Generating a passage index
+<h3>Topics</h3>
 
-```bash
-# this expects to find a set of .jsonl files (as produced in mode 1) in /path/to/inputs, and
-# will create a pyserini index in /path/to/output. The "-t" parameter is used to set the
-# number of threads that pyserini will use. 
-python ikat_tools.py create_index -i /path/to/inputs -o /path/to/output -t 16
-```
+The test and train topics can be found <a href="https://github.com/irlabamsterdam/iKAT/tree/main/2023/data">here</a>.
 
-## 3. Verifying passage hashes
+<h3>Collection</h3>
 
-```bash
-# /path/to/hashes should point to a directory containing .tsv file(s) in the same format as mode 1 produces
-# /path/to/passages should point to a directory containing .jsonl file(s) in the same format as mode 1 produces
-# (these 2 paths can be the same directory)
-# /path/to/log/file should be a filename where any hash mismatches will be logged If no mismatches
-# are found the file will be empty. 
-python ikat_tools.py verify_hashes -H /path/to/hashes -c /path/to/passages -e /path/to/log/file
-```
+The collection is a subset of the ClueWeb22 dataset. The collection distribution is being handled directly by CMU and not the iKAT organizers. Please follow these steps to get your data license ASAP:
 
-## Docker
 
-To make it simpler to run the script in a consistent environment, you can use the provided Dockerfile:
+<ul>
+  <li>Sign the license form available on the ClueWeb22 project web page.</li>
+  <li>Send the form to CMU for approval (jlm4@andrew.cmu.edu)</li>
+</ul>
 
-```bash
-docker build . -t ikat_tools
+Please give enough time to the CMU licensing office to accept your request. A download link will be sent to you by the ClueWeb22 team at CMU.
 
-# 1. segmenting the collection using 16 worker processes
-docker run -it --rm \
-      -v /path/to/input:/input:ro \
-      -v /path/to/output:/output:rw \
-      ikat_tools segment -i /input -o /output -w 16
+Note:
 
-# 2. generating an index with 16 threads
-docker run -it --rm \
-      -v /path/to/input:/input:ro \
-      -v /path/to/output:/output:rw \
-      ikat_tools create_index -i /input -o /output -t 16
+<ul>
+  <li>CMU requires a signature from the organization (i.e., the university or company), not an individual who wants to use the data. This can slow down the process at your end too. So, it’s useful to start the process ASAP.</li>
+  <li>If you already have an accepted license for ClueWeb22, you don’t need a new form. Please let us know if that’s the case.</li>
+</ul>
 
-# 3. verifying hashes
-docker run -it --rm \
-      -v /path/to/hashes:/hashes:ro \
-      -v /path/to/passage_files:/passages:ro \
-      -v /path/to/output:/output:rw \
-      ikat_tools verify_hashes -H /hashes -c /passages -e /output/log.txt
-```
+<h3>Baslines</h3>
+
+Will be added soon.
+
+<h2>Guidelines</h2>
+
+The task guideline can be found <a href="https://docs.google.com/document/d/1dso0VANm5Q08UWt4ppZvzvH6zkpRhfoukwpBgeJNbHE/edit#heading=h.wtcnmcfjg1h">here</a>.
+
+<h2>Contact</h2>
+<ul>
+  <li>Twitter: @trec_ikat</li>
+  <li>Email: <a href="">trec.ikat.ai@gmail.com</a></li>
+  <li>Google Groups: trec-ikat@googlegroups.com</li>
+  <li>Slack: <a href="https://app.slack.com/client/TEAQCDVSA/C04QPBXNL01">ikat-2023</a></li>
+</ul>
+
+<h2>Organizers</h2>
+<ul>
+  <li>Mohammad Aliannejadi, University of Amsterdam</li>
+  <li>Zahra Abbasiantaeb, University of Amsterdam</li>
+  <li>Shubham Chatterjee, University of Glasgow</li>
+  <li>Jeff Dalton, University of Glasgow</li>
+  <li>Leif Azzopardi, University of Strathclyde</li>
+</ul>
+
+
+
+
+
+
