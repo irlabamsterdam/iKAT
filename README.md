@@ -33,14 +33,13 @@ The test and train topics can be found <a href="https://github.com/irlabamsterda
 
 The collection is a subset of the ClueWeb22 dataset. The collection distribution is being handled directly by CMU and not the iKAT organizers. Please follow these steps to get your data license ASAP:
 
-<br>
+
 <ul>
   <li>Sign the license form available on the ClueWeb22 project web page.</li>
   <li>Send the form to CMU for approval (jlm4@andrew.cmu.edu)</li>
 </ul>
 
 Please give enough time to the CMU licensing office to accept your request. A download link will be sent to you by the ClueWeb22 team at CMU.
-<br>
 
 Note:
 
