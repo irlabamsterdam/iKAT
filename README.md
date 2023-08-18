@@ -12,3 +12,15 @@ the direction and the conversation that evolves depends not only on the prior re
 As different personas undertake various topics, systems need to build and develop a picture of who the user is, 
 in order to best address their information needs. 
 Put another way, iKAT focuses on a system understanding of user knowledge and information needs in accordance with the available context.
+
+This is the first year of iKAT which will run as a task in TREC. This year we focus on generating personalized responses. 
+The personal information of the user is provided in the Personalized Text Knowledge Base (PTKB) which is a set of natural language sentences. 
+The PTKB of the user is provided at the beging of the conversation to the system. 
+To generate a personalized response, the system should undertake the following main steps:
+
+<ul>
+  <li>Read the current dialogue turns up to the given turn (context): The provided context is: (1) A fixed set of previous responses with provenance in the preceding turns up to the current step, and (2) PTKB of the user. (Note: Using information from following turns is not allowed.)</li>
+  <li>Find the relevant statements from PTKB to the information needed for this turn: This task is considered a relevance score prediction. The output is in the form of a sorted list of statements from PTKB with corresponding relevance scores.</li>
+  <li>Extract or generate a response: Each response can be generated from multiple passages. It can be an abstractive or extractive summary of the corresponding passages. Each response must have one or more ranked passages as provenance used to produce it.</li>
+</ul>
+
