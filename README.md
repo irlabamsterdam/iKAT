@@ -1,4 +1,4 @@
-<h1>TREC Interactive Knowledge Assistance Track (iKAT)<h1>
+<h1>TREC Interactive Knowledge Assistance Track (iKAT)</h1>
 
 The iKAT builds on the experience of four successful years of the TREC Conversational Assistance Track (CAsT), 
 where the key focus of iKAT is on researching and developing collaborative information seeking conversational agents 
