@@ -26,29 +26,37 @@ The relevant PTKB statements from the second step would be used in the next step
 <h2>Data</h2>
 
 <h3>Topics</h3>
+
 The test and train topics can be found <a href="https://github.com/irlabamsterdam/iKAT/tree/main/2023/data">here</a>.
 
 <h3>Collection</h3>
+
 The collection is a subset of the ClueWeb22 dataset. The collection distribution is being handled directly by CMU and not the iKAT organizers. Please follow these steps to get your data license ASAP:
+
 <br>
 <ul>
   <li>Sign the license form available on the ClueWeb22 project web page.</li>
   <li>Send the form to CMU for approval (jlm4@andrew.cmu.edu)</li>
 </ul>
+
 Please give enough time to the CMU licensing office to accept your request. A download link will be sent to you by the ClueWeb22 team at CMU.
 <br>
+
 Note:
 
 <ul>
-<li>CMU requires a signature from the organization (i.e., the university or company), not an individual who wants to use the data. This can slow down the process at your end too. So, it’s useful to start the process ASAP.</li>
-<li>If you already have an accepted license for ClueWeb22, you don’t need a new form. Please let us know if that’s the case.</li>
+  <li>CMU requires a signature from the organization (i.e., the university or company), not an individual who wants to use the data. This can slow down the process at your end too. So, it’s useful to start the process ASAP.</li>
+  <li>If you already have an accepted license for ClueWeb22, you don’t need a new form. Please let us know if that’s the case.</li>
 </ul>
 
 <h3>Baslines</h3>
+
 Will be added soon.
 
 <h2>Guidelines</h2>
+
 The guideline for participants of iKAT can be found <a href="https://docs.google.com/document/d/1dso0VANm5Q08UWt4ppZvzvH6zkpRhfoukwpBgeJNbHE/edit#heading=h.wtcnmcfjg1h">here</a>.
+
 <h2>Contact</h2>
 <ul>
   <li>Twitter: @trec_ikat</li>
@@ -56,6 +64,7 @@ The guideline for participants of iKAT can be found <a href="https://docs.google
   <li>Google Groups: trec-ikat@googlegroups.com</li>
   <li>Slack: ikat-2023</li>
 </ul>
+
 <h2>Organizers</h2>
 <ul>
   <li>Mohammad Aliannejadi, University of Amsterdam</li>
