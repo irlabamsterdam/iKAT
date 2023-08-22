@@ -1,0 +1,8 @@
+grpcio==1.57.0
+grpcio-tools==1.57.0
+iniconfig==2.0.0
+packaging==23.1
+pluggy==1.2.0
+protobuf==4.24.1
+pytest==7.4.0
+tqdm==4.66.1
