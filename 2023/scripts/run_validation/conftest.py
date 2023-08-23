@@ -49,6 +49,7 @@ RUN_FILE_PATH                = os.path.join(test_root, 'tests', 'sample_run.json
 RUN_FILE_PATH_NO_PTKB        = os.path.join(test_root, 'tests', 'sample_run_no_ptkb.json')
 RUN_FILE_PATH_INVALID_SCORES = os.path.join(test_root, 'tests', 'sample_run_invalid_scores.json')
 RUN_FILE_PATH_INVALID_PTKB   = os.path.join(test_root, 'tests', 'sample_run_missing_ptkb_fields.json')
+RUN_FILE_PATH_RENAMED_FIELDS = os.path.join(test_root, 'tests', 'sample_run_renamed_fields.json')
 
 @pytest.fixture
 def sample_database(tmp_path: pathlib.PurePath):
@@ -88,6 +89,10 @@ def run_file_path_invalid_scores():
 @pytest.fixture
 def run_file_path_missing_ptkb_fields():
     yield RUN_FILE_PATH_INVALID_PTKB
+
+@pytest.fixture
+def run_file_path_renamed_fields():
+    yield RUN_FILE_PATH_RENAMED_FIELDS
 
 @pytest.fixture
 def default_validate_args():

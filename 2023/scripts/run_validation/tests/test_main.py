@@ -224,3 +224,11 @@ def test_validate_missing_ptkb_fields(default_validate_args, run_file_path_missi
     assert(pytest_exc.type == SystemExit)
     assert(pytest_exc.value.code == 255)
 
+def test_validate_renamed_fields(run_file_path_renamed_fields: str):
+    # this run has some field names changed to other values. this should be caught at the 
+    # JSON => Protobuf parsing step
+    with pytest.raises(SystemExit) as pytest_exc:
+        run = load_run_file(run_file_path_renamed_fields)
+
+    assert(pytest_exc.type == SystemExit)
+    assert(pytest_exc.value.code == 255)
