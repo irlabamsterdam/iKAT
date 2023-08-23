@@ -35,17 +35,18 @@ def pytest_collection_modifyitems(config, items):
             item.add_marker(skip_slow)
 
 # this file just contains the first 10k lines of the full hash file
-SAMPLE_HASHES_PATH = os.path.join(test_root, 'tests', 'sample_hashes.tsv')
+SAMPLE_HASHES_PATH    = os.path.join(test_root, 'tests', 'sample_hashes.tsv')
 # database version of the same file
-SAMPLE_DB_PATH = os.path.join(test_root, 'tests', 'sample_hashes.sqlite3')
-SAMPLE_DB_COUNT = 10000
+SAMPLE_DB_PATH        = os.path.join(test_root, 'tests', 'sample_hashes.sqlite3')
+SAMPLE_DB_COUNT       = 10000
 
-FULL_DB_PATH = os.path.join(test_root, 'files', 'ikat_2023_passages_hashes.sqlite3')
+FULL_DB_PATH          = os.path.join(test_root, 'files', 'ikat_2023_passages_hashes.sqlite3')
 
-TOPIC_DATA_PATH = os.path.join(test_root, '..', '..', 'data')
-TOPIC_DATA_FILE = os.path.join(TOPIC_DATA_PATH, '2023_test_topics.json')
+TOPIC_DATA_PATH       = os.path.join(test_root, '..', '..', 'data')
+TOPIC_DATA_FILE       = os.path.join(TOPIC_DATA_PATH, '2023_test_topics.json')
 
-RUN_FILE_PATH = os.path.join(test_root, 'tests', 'sample_run.json')
+RUN_FILE_PATH         = os.path.join(test_root, 'tests', 'sample_run.json')
+RUN_FILE_PATH_NO_PTKB = os.path.join(test_root, 'tests', 'sample_run_no_ptkb.json')
 
 @pytest.fixture
 def sample_database(tmp_path: pathlib.PurePath):
@@ -73,6 +74,10 @@ def topic_data_file():
 @pytest.fixture
 def run_file_path():
     yield RUN_FILE_PATH
+
+@pytest.fixture
+def run_file_path_no_ptkb():
+    yield RUN_FILE_PATH_NO_PTKB
 
 @pytest.fixture
 def default_validate_args():

@@ -217,3 +217,12 @@ def test_validate_passages_used(default_validate_args, grpc_stub_test, topic_dat
     assert(turns_validated == 6)
     assert(service_errors == 0)
     assert(total_warnings == 6) # 3 responses in each turn in the sample file
+
+def test_validate_no_ptkb_results(default_validate_args, grpc_stub_test, topic_data_file: str, run_file_path_no_ptkb: str):
+    args = default_validate_args
+    topic_data = load_topic_data(topic_data_file)
+    run = load_run_file(run_file_path_no_ptkb)
+
+    turns_validated, _, total_warnings = validate_run(run, topic_data, grpc_stub_test, args.max_warnings, args.strict, args.timeout)
+    assert(turns_validated == len(run.turns))
+    assert(total_warnings == len(run.turns)) # should be 1 warning per turn
