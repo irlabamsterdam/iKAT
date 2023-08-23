@@ -20,8 +20,7 @@ def serve(db_path: str, expected_rows: int) -> None:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('db_path', type=str, help='SQLite database path', default='./files/all_hashes.sqlite3')
-    parser.add_argument('expected_rows', type=int, nargs='?', default=IKAT_PASSAGE_COUNT, 
-        help='Expected number of rows in the database (0 to skip checking, omit to use the correct count for all_hashes.csv)')
+    parser.add_argument('db_path', type=str, help='SQLite database path', default='./files/ikat_2023_passages_hashes.sqlite3')
+    parser.add_argument('expected_rows', type=int, nargs='?', default=IKAT_PASSAGE_COUNT, help='Expected number of rows in the database (0 to skip checking)')
     args = parser.parse_args()
     serve(args.db_path, args.expected_rows)
