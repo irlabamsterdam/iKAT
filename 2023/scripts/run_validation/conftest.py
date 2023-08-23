@@ -35,9 +35,9 @@ def pytest_collection_modifyitems(config, items):
             item.add_marker(skip_slow)
 
 # this file just contains the first 10k lines of the full hash file
-SAMPLE_HASHES_PATH           = os.path.join(test_root, 'tests', 'sample_hashes.tsv')
+SAMPLE_HASHES_PATH           = os.path.join(test_root, 'tests', 'data', 'sample_hashes.tsv')
 # database version of the same file
-SAMPLE_DB_PATH               = os.path.join(test_root, 'tests', 'sample_hashes.sqlite3')
+SAMPLE_DB_PATH               = os.path.join(test_root, 'tests', 'data', 'sample_hashes.sqlite3')
 SAMPLE_DB_COUNT              = 10000
 
 FULL_DB_PATH                 = os.path.join(test_root, 'files', 'ikat_2023_passages_hashes.sqlite3')
@@ -45,11 +45,11 @@ FULL_DB_PATH                 = os.path.join(test_root, 'files', 'ikat_2023_passa
 TOPIC_DATA_PATH              = os.path.join(test_root, '..', '..', 'data')
 TOPIC_DATA_FILE              = os.path.join(TOPIC_DATA_PATH, '2023_test_topics.json')
 
-RUN_FILE_PATH                = os.path.join(test_root, 'tests', 'sample_run.json')
-RUN_FILE_PATH_NO_PTKB        = os.path.join(test_root, 'tests', 'sample_run_no_ptkb.json')
-RUN_FILE_PATH_INVALID_SCORES = os.path.join(test_root, 'tests', 'sample_run_invalid_scores.json')
-RUN_FILE_PATH_INVALID_PTKB   = os.path.join(test_root, 'tests', 'sample_run_missing_ptkb_fields.json')
-RUN_FILE_PATH_RENAMED_FIELDS = os.path.join(test_root, 'tests', 'sample_run_renamed_fields.json')
+RUN_FILE_PATH                = os.path.join(test_root, 'tests', 'data', 'sample_run.json')
+RUN_FILE_PATH_NO_PTKB        = os.path.join(test_root, 'tests', 'data', 'sample_run_no_ptkb.json')
+RUN_FILE_PATH_INVALID_SCORES = os.path.join(test_root, 'tests', 'data', 'sample_run_invalid_scores.json')
+RUN_FILE_PATH_INVALID_PTKB   = os.path.join(test_root, 'tests', 'data', 'sample_run_missing_ptkb_fields.json')
+RUN_FILE_PATH_RENAMED_FIELDS = os.path.join(test_root, 'tests', 'data', 'sample_run_renamed_fields.json')
 
 @pytest.fixture
 def sample_database(tmp_path: pathlib.PurePath):
