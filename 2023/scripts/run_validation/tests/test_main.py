@@ -91,35 +91,22 @@ def test_validate_run(topic_data_file, run_file_path: str, grpc_stub_test, defau
     run = load_run_file(run_file_path)
     assert(len(run.turns) == 6)
     
-    turns_validated, service_errors, total_warnings = validate_run(run, topic_data, grpc_stub_test, args.max_warnings, args.strict, args.timeout)
+    turns_validated, service_errors, total_warnings = validate_run(run, topic_data, grpc_stub_test, args.max_warnings, args.timeout)
 
-    assert(turns_validated == 6)
-    assert(service_errors == 0)
-    assert(total_warnings == 0)
-
-def test_validate_run_strict(topic_data_file, run_file_path: str, grpc_stub_test, default_validate_args):
-    args = default_validate_args
-    args.strict = True
-    topic_data = load_topic_data(topic_data_file)
-    run = load_run_file(run_file_path)
-    assert(len(run.turns) == 6)
-
-    turns_validated, service_errors, total_warnings = validate_run(run, topic_data, grpc_stub_test, args.max_warnings, args.strict, args.timeout)
     assert(turns_validated == 6)
     assert(service_errors == 0)
     assert(total_warnings == 0)
 
 @pytest.mark.slow
-def test_validate_run_strict_invalid(topic_data_file, run_file_path: str, grpc_stub_test_invalid, default_validate_args):
+def test_validate_run_invalid(topic_data_file, run_file_path: str, grpc_stub_test_invalid, default_validate_args):
     args = default_validate_args
-    args.strict = True
     topic_data = load_topic_data(topic_data_file)
     run = load_run_file(run_file_path)
     assert(len(run.turns) == 6)
 
-    # test that the script exits when it can't contact the grpc servicv in strict mode
+    # test that the script exits when it can't contact the grpc service
     with pytest.raises(SystemExit) as pytest_exc:
-        turns_validated, service_errors, total_warnings = validate_run(run, topic_data, grpc_stub_test_invalid, args.max_warnings, args.strict, args.timeout)
+        _, _, _ = validate_run(run, topic_data, grpc_stub_test_invalid, args.max_warnings, args.timeout)
 
     assert pytest_exc.type == SystemExit
     assert pytest_exc.value.code == 255
@@ -130,7 +117,7 @@ def test_validate_run_no_service(topic_data_file, run_file_path: str, default_va
     run = load_run_file(run_file_path)
     assert(len(run.turns) == 6)
     
-    turns_validated, service_errors, total_warnings = validate_run(run, topic_data, None, args.max_warnings, args.strict, args.timeout)
+    turns_validated, service_errors, total_warnings = validate_run(run, topic_data, None, args.max_warnings, args.timeout)
     assert(turns_validated == 6)
     assert(service_errors == 0)
     assert(total_warnings == 0)
@@ -139,7 +126,7 @@ def test_validate_run_no_service(topic_data_file, run_file_path: str, default_va
 def test_validate(default_validate_args, grpc_server_full):
     args = default_validate_args
 
-    turns_validated, service_errors, total_warnings = validate(args.path_to_run_file, args.fileroot, args.max_warnings, args.skip_passage_validation, args.strict, args.timeout)
+    turns_validated, service_errors, total_warnings = validate(args.path_to_run_file, args.fileroot, args.max_warnings, args.skip_passage_validation, args.timeout)
     assert(turns_validated == 6)
     assert(service_errors == 0)
     assert(total_warnings == 0) 
@@ -151,7 +138,7 @@ def test_validate_no_service(default_validate_args, grpc_server_full):
     # terminate the service
     grpc_server_full.stop(None)
 
-    turns_validated, service_errors, total_warnings = validate(args.path_to_run_file, args.fileroot, args.max_warnings, args.skip_passage_validation, args.strict, args.timeout)
+    turns_validated, service_errors, total_warnings = validate(args.path_to_run_file, args.fileroot, args.max_warnings, args.skip_passage_validation, args.timeout)
     assert(turns_validated == 6)
     assert(service_errors == 6)
     assert(total_warnings == 0) 
@@ -164,37 +151,23 @@ def test_validate_no_service_skip_validation(default_validate_args, grpc_server_
     # terminate the service
     grpc_server_full.stop(None)
 
-    turns_validated, service_errors, total_warnings = validate(args.path_to_run_file, args.fileroot, args.max_warnings, args.skip_passage_validation, args.strict, args.timeout)
+    turns_validated, service_errors, total_warnings = validate(args.path_to_run_file, args.fileroot, args.max_warnings, args.skip_passage_validation, args.timeout)
     assert(turns_validated == 6)
     assert(service_errors == 0)
     assert(total_warnings == 0) 
-
-@pytest.mark.slow
-def test_validate_no_service_strict(default_validate_args, grpc_server_full):
-    args = default_validate_args
-    args.strict = True
-
-    # terminate the service
-    grpc_server_full.stop(None)
-
-    with pytest.raises(SystemExit) as pytest_exc:
-        turns_validated, service_errors, total_warnings = validate(args.path_to_run_file, args.fileroot, args.max_warnings, args.skip_passage_validation, args.strict, args.timeout)
-
-    assert(pytest_exc.type == SystemExit)
-    assert(pytest_exc.value.code == 255)
 
 def test_validate_empty(default_validate_args):
     args = default_validate_args
     args.path_to_run_file = 'foobar'
     with pytest.raises(FileNotFoundError):
-        _, _, _ = validate(args.path_to_run_file, args.fileroot, args.max_warnings, args.skip_passage_validation, args.strict, args.timeout)
+        _, _, _ = validate(args.path_to_run_file, args.fileroot, args.max_warnings, args.skip_passage_validation, args.timeout)
 
 def test_validate_small(default_validate_args, grpc_server_test):
     args = default_validate_args
     
     # this should abort after generating enough warnings, since the smaller database won't match most of the IDs
     #with pytest.raises(SystemExit) as pytest_exc:
-    turns_validated, service_errors, total_warnings = validate(args.path_to_run_file, args.fileroot, args.max_warnings, args.skip_passage_validation, args.strict, args.timeout)
+    turns_validated, service_errors, total_warnings = validate(args.path_to_run_file, args.fileroot, args.max_warnings, args.skip_passage_validation, args.timeout)
     assert(turns_validated == 6)
     assert(service_errors == 0)
     assert(total_warnings == 0)
@@ -212,7 +185,7 @@ def test_validate_passages_used(default_validate_args, grpc_stub_test, topic_dat
             for pprov in response.passage_provenance:
                 pprov.used = False
     
-    turns_validated, service_errors, total_warnings = validate_run(run, topic_data, grpc_stub_test, args.max_warnings, args.strict, args.timeout)
+    turns_validated, service_errors, total_warnings = validate_run(run, topic_data, grpc_stub_test, args.max_warnings, args.timeout)
 
     assert(turns_validated == 6)
     assert(service_errors == 0)
@@ -223,7 +196,7 @@ def test_validate_no_ptkb_results(default_validate_args, grpc_stub_test, topic_d
     topic_data = load_topic_data(topic_data_file)
     run = load_run_file(run_file_path_no_ptkb)
 
-    turns_validated, _, total_warnings = validate_run(run, topic_data, grpc_stub_test, args.max_warnings, args.strict, args.timeout)
+    turns_validated, _, total_warnings = validate_run(run, topic_data, grpc_stub_test, args.max_warnings, args.timeout)
     assert(turns_validated == len(run.turns))
     assert(total_warnings == len(run.turns)) # should be 1 warning per turn
 
@@ -232,7 +205,7 @@ def test_validate_non_numeric_scores(default_validate_args, run_file_path_invali
 
     # test that a file with invalid scores doesn't parse
     with pytest.raises(SystemExit) as pytest_exc:
-        _, _, _ = validate(run_file_path_invalid_scores, args.fileroot, args.max_warnings, args.skip_passage_validation, args.strict, args.timeout)
+        _, _, _ = validate(run_file_path_invalid_scores, args.fileroot, args.max_warnings, args.skip_passage_validation, args.timeout)
 
     assert(pytest_exc.type == SystemExit)
     assert(pytest_exc.value.code == 255)
@@ -246,7 +219,7 @@ def test_validate_missing_ptkb_fields(default_validate_args, run_file_path_missi
     # this run has a ptkb_provenance field with the "id" and "text" entries deleted, it should cause the
     # script to exit when it encounters them
     with pytest.raises(SystemExit) as pytest_exc:
-        _, _, _ = validate_run(run, topic_data, None, args.max_warnings, args.strict, args.timeout)
+        _, _, _ = validate_run(run, topic_data, None, args.max_warnings, args.timeout)
 
     assert(pytest_exc.type == SystemExit)
     assert(pytest_exc.value.code == 255)

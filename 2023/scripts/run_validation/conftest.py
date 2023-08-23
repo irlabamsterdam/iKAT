@@ -96,7 +96,6 @@ def default_validate_args():
         max_warnings=25,
         skip_passage_validation=False,
         fileroot=TOPIC_DATA_PATH,
-        strict=False,
         timeout=GRPC_DEFAULT_TIMEOUT,
     )
 

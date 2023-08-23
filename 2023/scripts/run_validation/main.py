@@ -161,7 +161,7 @@ def validate_turn(turn: Turn, topic_data: dict[str, Any], stub: Union[None, Pass
 
     return warning_count, service_errors
 
-def validate_run(run: iKATRun, topics_dict: dict[str, dict[str, Any]], stub: Union[None, PassageValidatorStub], max_warnings: int, strict: bool, timeout: float) -> Tuple[int, int, int]:
+def validate_run(run: iKATRun, topics_dict: dict[str, dict[str, Any]], stub: Union[None, PassageValidatorStub], max_warnings: int, timeout: float) -> Tuple[int, int, int]:
     """
     Validates a run turn-by-turn, recording warnings and errors.
     """
@@ -217,14 +217,15 @@ def validate_run(run: iKATRun, topics_dict: dict[str, dict[str, Any]], stub: Uni
             logger.error(f'Maximum number of warnings exceeded ({total_warnings} > {max_warnings}), aborting!')
             sys.exit(255)
 
-        if service_errors > 0 and strict:
-            logger.error('Validation service errors encountered and strict mode enabled')
+        if service_errors > 0:
+            # always abort if a passage ID validation error occurs
+            logger.error('Validation service errors encountered')
             sys.exit(255)
 
     logger.info(f'Validation completed on {turns_validated}/{len(run.turns)} turns with {total_warnings} warnings, {service_errors} service errors')
     return turns_validated, service_errors, total_warnings
 
-def validate(run_file_path: str, fileroot: str, max_warnings: int, skip_validation: bool, strict: bool, timeout: float) -> Tuple[int, int, int]:
+def validate(run_file_path: str, fileroot: str, max_warnings: int, skip_validation: bool, timeout: float) -> Tuple[int, int, int]:
     """
     Top level run validation method.
 
@@ -239,9 +240,9 @@ def validate(run_file_path: str, fileroot: str, max_warnings: int, skip_validati
     # only instantiate the gRPC service client if skip_validation is False
     validator_stub = None if skip_validation else get_stub()
 
-    if strict and not skip_validation and validator_stub is None:
-        logger.error('Failed to set up validation service and strict checking was requested')
-        raise Exception('Failed to set up validation service and strict checking was requested')
+    if not skip_validation and validator_stub is None:
+        logger.error('Failed to set up validation service')
+        raise Exception('Failed to set up validation service')
 
     topics_dict = load_topic_data(f'{fileroot}/2023_test_topics.json')
 
@@ -251,7 +252,7 @@ def validate(run_file_path: str, fileroot: str, max_warnings: int, skip_validati
         logger.error('Loaded run file has 0 turns, not performing any validation!')
         return len(run.turns), -1, -1
    
-    turns_validated, service_errors, total_warnings = validate_run(run, topics_dict, validator_stub, max_warnings, strict, timeout)
+    turns_validated, service_errors, total_warnings = validate_run(run, topics_dict, validator_stub, max_warnings, timeout)
 
     return turns_validated, service_errors, total_warnings
 
@@ -262,8 +263,7 @@ if __name__ == '__main__':
     ap.add_argument('-f', '--fileroot', help='Location of data files', default='../../data')
     ap.add_argument('-S', '--skip_passage_validation', help='Skip passage ID validation', action='store_true')
     ap.add_argument('-m', '--max_warnings', help='Maximum number of warnings to allow', type=int, default=25) 
-    ap.add_argument('-s', '--strict', help='Abort if any passage validation service errors occur', action='store_true')
     ap.add_argument('-t', '--timeout', help='Set the gRPC timeout (secs) for contacting the validation service', default=GRPC_DEFAULT_TIMEOUT, type=float)
     args = ap.parse_args()
 
-    validate(args.path_to_run_file, args.fileroot, args.max_warnings, args.skip_passage_validation, args.strict, args.timeout)
+    validate(args.path_to_run_file, args.fileroot, args.max_warnings, args.skip_passage_validation, args.timeout)
