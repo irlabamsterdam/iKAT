@@ -21,10 +21,8 @@ Some examples:
 python3 main.py <run file path>
 # Run without having the validator service available
 python3 main.py <run file path> -S
-# Abort the run if more than 50 validation warnings are generated
+# Abort the run if more than 50 warnings of any type are generated
 python3 main.py <run file path> -m 50
-# Abort the run if any gRPC errors occur contacting the validation service
-python3 main.py <run file path> -s
 # Set a 10s timeout for gRPC calls to the validation service
 python3 main.py <run file path> -t 10
 ```
