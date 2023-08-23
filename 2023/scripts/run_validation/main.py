@@ -194,13 +194,19 @@ def validate_run(run: iKATRun, topics_dict: dict[str, dict[str, Any]], stub: Uni
 
         topic_data = topics_dict[topic_id]
         num_turns = len(topic_data['turns'])
-        if int(turn_id) > num_turns:
-            logger.warning(f'Turn {turn.turn_id} has a turn ID higher than the number of expected turns ({turn_id} > {num_turns})')
-            total_warnings += 1
+        try:
+            turn_id_int = int(turn_id)
+        except ValueError:
+            logger.error(f'Failed to parse turn ID {turn_id} as an integer')
+            sys.exit(255)
+
+        if turn_id_int > num_turns:
+            logger.error(f'Turn {turn.turn_id} has a turn ID higher than the number of expected turns ({turn_id} > {num_turns})')
+            sys.exit(255)
 
         if len(run.turns) != num_turns:
-            logger.warning(f'The run contains {len(run.turns)} turns, but the topic contains {num_turns} turns')
-            total_warnings += 1
+            logger.error(f'The run contains {len(run.turns)} turns, but the topic contains {num_turns} turns')
+            sys.exit(255)
 
         _warnings, _service_errors = validate_turn(turn, topic_data, stub, timeout)
         total_warnings += _warnings
@@ -242,7 +248,7 @@ def validate(run_file_path: str, fileroot: str, max_warnings: int, skip_validati
     run = load_run_file(run_file_path)
     
     if len(run.turns) == 0:
-        logger.warning('Loaded run file has 0 turns, not performing any validation!')
+        logger.error('Loaded run file has 0 turns, not performing any validation!')
         return len(run.turns), -1, -1
    
     turns_validated, service_errors, total_warnings = validate_run(run, topics_dict, validator_stub, max_warnings, strict, timeout)
