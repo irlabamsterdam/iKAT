@@ -50,7 +50,13 @@ Note:
 
 <h3>Baslines</h3>
 
-Will be added soon.
+See the `2023/scripts/baselines` for code and runs.
+
+<h3>Getting Started 
+
+See the [Getting Started](https://www.trecikat.com/demo/) on the website. 
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1MOKGQZxjDhREX6d-m68om9mzTmHbwLsa?usp=sharing)
 
 <h2>Guidelines</h2>
 
