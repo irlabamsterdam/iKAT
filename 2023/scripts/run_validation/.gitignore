@@ -4,4 +4,5 @@
 __pycache__
 compiled_protos
 *.log
+compiled_protobufs
 
