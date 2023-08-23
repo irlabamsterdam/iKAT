@@ -15,7 +15,10 @@ sys.path.append('./compiled_protobufs')
 from passage_validator_pb2_grpc import PassageValidatorStub
 from run_pb2 import Turn, iKATRun
 
+# a default timeout for gRPC calls to the passage validator
 GRPC_DEFAULT_TIMEOUT = 3.0
+
+# the number of entries that should be parsed from the topics JSON file
 EXPECTED_TOPIC_ENTRIES = 25
 
 logger = logging.getLogger(__name__)
@@ -27,6 +30,9 @@ streamHandler.setFormatter(formatter)
 logger.addHandler(streamHandler)
 
 def get_stub(ip: str = 'localhost', port: int = 8000) -> Union[None, PassageValidatorStub]:
+    """
+    Create a gRPC channel to the validator service and return the service stub. 
+    """
     try:
         passage_validation_channel = grpc.insecure_channel(f'{ip}:{port}')
         passage_validation_client = PassageValidatorStub(passage_validation_channel)
@@ -37,6 +43,11 @@ def get_stub(ip: str = 'localhost', port: int = 8000) -> Union[None, PassageVali
     return passage_validation_client
 
 def load_topic_data(path: str) -> dict[str, dict[str, Any]]:
+    """
+    Load the test topics JSON file.
+
+    Returns the content as a dict.
+    """
     if not os.path.exists(path):
         logger.error(f'Topics file {path} not found!')
         raise Exception(f'Topics file {path} not found!')
@@ -57,6 +68,17 @@ def load_topic_data(path: str) -> dict[str, dict[str, Any]]:
     return topics_dict
 
 def load_run_file(run_file_path: str) -> iKATRun:
+    """
+    Loads the selected run file.
+
+    The file is first opened and parsed as JSON. A couple of simple checks
+    for expected top-level fields like "run_name" and "run_type" are made.
+    After that the content is passed to ParseDict to populate a protobuf
+    iKATRun object. This should generate an exception if there are any 
+    unexpected/missing fields in the JSON data.
+
+    Returns a populated iKATRun object (see protocol_buffers/run.proto).
+    """
     # validate structure
     with open(run_file_path, 'r', encoding='utf-8') as run_file:
         try:
@@ -101,7 +123,7 @@ def validate_turn(turn: Turn, topic_data: dict[str, Any], stub: Union[None, Pass
         #   - does it have a rank > 0
         #   - does the rank increase with each response
         #   - does the response have text
-        warning_count += check_response(response, logger, previous_rank, turn)
+        warning_count += check_response(response, logger, previous_rank, turn.turn_id)
         previous_score = 1e9
 
         # check passage provenances
@@ -136,7 +158,7 @@ def validate_turn(turn: Turn, topic_data: dict[str, Any], stub: Union[None, Pass
 
     return warning_count, service_errors
 
-def validate_run(run: iKATRun, topics_dict: dict[str, dict[str, Any]], stub: PassageValidatorStub, max_warnings: int, strict: bool, timeout: float) -> Tuple[int, int, int]:
+def validate_run(run: iKATRun, topics_dict: dict[str, dict[str, Any]], stub: Union[None, PassageValidatorStub], max_warnings: int, strict: bool, timeout: float) -> Tuple[int, int, int]:
     """
     Validates a run turn-by-turn, recording warnings and errors.
     """
