@@ -106,7 +106,6 @@ class PassageIDDatabase:
                 cur.executemany(f'INSERT INTO {PassageIDDatabase.TABLE_NAME} VALUES (?)', batch)
                 self._conn.commit()
                 inserted += len(batch)
-                logger.info(f'Inserted {inserted:9d} rows')
                 progress.update(len(batch))
 
             logger.info(f'Database populated with {inserted} rows, vacuuming...')
