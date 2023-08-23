@@ -8,15 +8,10 @@ from typing import List, Optional
 
 import tqdm
 
-#
-# Convert all_hashes.csv (or similarly formatted file) into an SQLite database,
-# using a single table (passage_ids) and a single column (id). It provides a
-# populate() method to copy IDs from the CSV and a validate() method to take
-# a list of passage IDs and check if they appear in the table. 
-#
-
-
+# expected number of passages in the collection (=number of lines in the hashes .tsv file)
 IKAT_PASSAGE_COUNT = 116838987
+
+# default number of rows to insert into a single insert when building the database
 DEFAULT_BATCH_SIZE = 20000
 
 LOGLEVEL = logging.INFO
@@ -61,9 +56,11 @@ class PassageIDDatabase:
 
     def populate(self, hash_file: str, batch_size: int, num_lines: int = IKAT_PASSAGE_COUNT) -> bool:
         """
-        Populate the database from a .csv file with passage IDs in the first column.
+        Populate the database from a .tsv file.
+
+        Rows are expected to contain ClueWeb22-ID<tab>passage number<tab>passage hash.
         
-        Inserts are done in transactions of batch_size rows. 
+        Inserts are done in transactions of batch_size rows.
         """
 
         if self._conn is None:
@@ -78,6 +75,11 @@ class PassageIDDatabase:
             logger.error(f'Error initialising database: {sqle}')
             return False
 
+        # try to speed up the inserts a little:
+        # - increase the default page cache size
+        # - disable journaling
+        # - disable synchronous writes
+        # - store temporary data in memory
         cur.execute('PRAGMA cache_size = -500000')
         cur.execute('PRAGMA journal_mode = OFF')
         cur.execute('PRAGMA synchronous = OFF')
@@ -113,6 +115,13 @@ class PassageIDDatabase:
         return True
 
     def validate(self, ids: List[str]) -> List[bool]:
+        """
+        Check a list of passage IDs are in the database.
+
+        Expects a list of passage IDs in the standard ClueWeb22-ID:passage number format.
+
+        Returns a list of bools the same size as the input list indicating if each ID is valid/invalid.
+        """
         if self._conn is None:
             raise Exception('Database connection has not been opened')
 
@@ -129,12 +138,18 @@ class PassageIDDatabase:
         return results
 
     def close(self) -> bool:
+        """
+        Close the database connection if it's currently open.
+        """
         if self._conn is not None:
             self._conn.commit()
             self._conn.close()
         return True
 
     def rowcount(self) -> int:
+        """
+        Returns the number of rows in the database.
+        """
         if self._conn is None:
             raise Exception('Database connection has not been opened')
 
@@ -156,7 +171,7 @@ if __name__ == "__main__":
         print(f'Error: {args.hash_file} does not exist!')
         sys.exit(255)
 
-    # create database in same location as file with .sqlite3 extension
+    # create database in same location as the input, replacing the extension with .sqlite3
     db_name, db_ext = os.path.splitext(args.hash_file)
     db_name = db_name + '.sqlite3'
     print(f'Creating database at {db_name}')
