@@ -31,3 +31,6 @@ python3 main.py <run file path> -t 10
 
 The script logs to stdout and to a file in the current working directory named `<run_file>.errlog` (e.g. a run file named `sample_run.json` will have logs saved to `sample_run.json.errlog`).
 
+## Tests
+
+There are some tests provided along with the validation script in the `tests` directory. To run them, use `pytest` from the `run_validation` directory, or `pytest --runslow` to run all tests including those that won't complete immediately. 
