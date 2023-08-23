@@ -30,6 +30,7 @@ message PassageProvenance {
     string id = 1;
     string text = 2;
     float score = 3;
+    bool used = 4;
 }
 
 // PTKBProvenances contain ID, text, score
