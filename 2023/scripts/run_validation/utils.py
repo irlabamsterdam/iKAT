@@ -1,16 +1,23 @@
 import sys
 
 from logging import Logger
-from typing import Any
+from typing import Any, List
 
 sys.path.append('./compiled_protobufs')
-from passage_validator_pb2 import PassageValidationRequest, PassageValidationResult
+from passage_validator_pb2 import PassageValidationRequest
 from passage_validator_pb2_grpc import PassageValidatorStub
-from run_pb2 import Turn, PassageProvenance, PTKBProvenance
+from run_pb2 import Turn, PassageProvenance, PTKBProvenance, Response
 
-def check_response(response: PassageValidationResult, logger: Logger, previous_rank: int, turn_id: str) -> int:
+def check_response(response: Response, logger: Logger, previous_rank: int, turn_id: str) -> int:
     """
-    Validate a Response within a Turn
+    Validate a Response within a Turn.
+
+    This checks if the Response:
+     - has a rank > 0
+     - has a rank > the previous rank
+     - has a non-empty response text
+
+    Return value is the number of warnings generated.
     """
     new_warnings = 0 
 
@@ -33,12 +40,19 @@ def check_response(response: PassageValidationResult, logger: Logger, previous_r
 
 def check_passage_provenance(prev_score: float, provenance: PassageProvenance, logger: Logger, turn_id: str) -> int:
     """
-    Validate a PassageProvenance entry
+    Validate a PassageProvenance entry.
+
+    This checks if the PassageProvenance:
+     - has a score below that of the previous entry
+     - has a 'clueweb22-' prefix on the passage ID
+     - has a single colon in the passage ID
+
+    Return value is the number of warnings generated.
     """
     new_warnings = 0
 
     # the scores should decrease with each entry
-    if prev_score < provenance.score:
+    if provenance.score > prev_score:
         logger.warning(f'{provenance.id} has a greater score than the previous passage ({provenance.score} > {prev_score}. Ranking order for turn {turn_id} not correct')
         new_warnings += 1
 
@@ -55,7 +69,15 @@ def check_passage_provenance(prev_score: float, provenance: PassageProvenance, l
 
 def check_ptkb_provenance(ptkb_prov: PTKBProvenance, turn: Turn, ptkbs: dict[str, Any], prev_score: float, logger: Logger) -> int:
     """
-    Validate a PTKBProvenance entry
+    Validate a PTKBProvenance entry.
+
+    This checks if the PTKBProvenance:
+     - has a non-empty PTKB ID
+     - has a PTKB ID that appears in the topics file
+     - has PTKB text that matches the corresponding entry in the topics file
+     - has a score that is greater than the previous entry
+
+    Return value is the number of warnings generated.
     """
     new_warnings = 0
 
@@ -86,15 +108,17 @@ def validate_passages(passage_validation_client: PassageValidatorStub, logger: L
     Constructs a list of all the unique passage IDs referenced in the given Turn,
     and packages them as a PassageValidationRequest. The request is sent to the 
     validation service, and the result is checked for any invalid IDs.
+
+    Return values is the number of passage IDs found to be invalid. 
     """
     passage_validation_request = PassageValidationRequest()
 
     # build a list of passage IDs, filtering out duplicates
-    passage_ids = set()
+    passage_ids_set = set()
     for response in turn.responses:
         for provenance in response.passage_provenance:
-            passage_ids.add(provenance.id)
-    passage_ids = list(passage_ids)
+            passage_ids_set.add(provenance.id)
+    passage_ids: List[str] = list(passage_ids_set)
 
     # call the validator service
     passage_validation_request.passage_ids.MergeFrom(passage_ids)
