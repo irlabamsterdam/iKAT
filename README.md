@@ -52,7 +52,7 @@ Note:
 
 See the `2023/scripts/baselines` for code and runs.
 
-<h3>Getting Started 
+<h3>Getting Started</h3>
 
 See the [Getting Started](https://www.trecikat.com/demo/) on the website. 
 
