@@ -118,19 +118,22 @@ def validate_turn(turn: Turn, topic_data: dict[str, Any], stub: Union[None, Pass
             logger.warning(f'A gRPC error occurred when validating passages (name={rpce.code().name}, message={rpce.details()})')
             service_errors += 1
 
-    for response in turn.responses:
+    for i, response in enumerate(turn.responses):
         # check the response:
-        #   - does it have a rank > 0
-        #   - does the rank increase with each response
-        #   - does the response have text
         warning_count += check_response(response, logger, previous_rank, turn.turn_id)
+
         previous_score = 1e9
 
         # check passage provenances
-        #   - does the score decrease with each response
         for provenance in response.passage_provenance:
             warning_count += check_passage_provenance(previous_score, provenance, logger, turn.turn_id)
             previous_score = provenance.score
+
+        passages_used = [p.used for p in response.passage_provenance if p.used]
+
+        if len(passages_used) == 0:
+            logger.warning(f'Turn {turn.turn_id}, response #{i} has no passages marked as "used"! The top 5 passages will be used as provenance by default')
+            warning_count += 1
 
         if len(response.passage_provenance) == 0:
             logger.warning(f'Turn {turn.turn_id} has a response with no passage provenances')
