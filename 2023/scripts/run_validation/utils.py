@@ -82,18 +82,16 @@ def check_ptkb_provenance(ptkb_prov: PTKBProvenance, turn: Turn, ptkbs: dict[str
     new_warnings = 0
 
     if len(ptkb_prov.id) == 0:
-        logger.warning(f'A PTKB provenance ID in turn {turn.turn_id} is empty')
-        new_warnings += 1
-        return new_warnings
+        logger.error(f'A PTKB provenance ID in turn {turn.turn_id} is empty')
+        sys.exit(255)
 
     if ptkb_prov.id not in ptkbs:
-        logger.warning(f'PTKB provenance with ID {ptkb_prov.id} in turn {turn.turn_id} is invalid')
-        new_warnings += 1
-        return new_warnings
+        logger.error(f'PTKB provenance with ID {ptkb_prov.id} in turn {turn.turn_id} is invalid')
+        sys.exit(255)
 
     if ptkb_prov.text != ptkbs[ptkb_prov.id]:
-        logger.warning(f'PTKB provenance with ID {ptkb_prov.id} in turn {turn.turn_id} has a text mismatch')
-        new_warnings += 1
+        logger.error(f'PTKB provenance with ID {ptkb_prov.id} in turn {turn.turn_id} has a text mismatch')
+        sys.exit(255)
 
     if ptkb_prov.score > prev_score:
         logger.warning(f'PTKB provenance with ID {ptkb_prov.id} in turn {turn.turn_id} has a score greater than the previous entry, ordering may be incorrect')

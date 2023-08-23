@@ -236,3 +236,18 @@ def test_validate_non_numeric_scores(default_validate_args, run_file_path_invali
 
     assert(pytest_exc.type == SystemExit)
     assert(pytest_exc.value.code == 255)
+
+def test_validate_missing_ptkb_fields(default_validate_args, run_file_path_missing_ptkb_fields: str, topic_data_file: str):
+    args = default_validate_args
+    topic_data = load_topic_data(topic_data_file)
+    run = load_run_file(run_file_path_missing_ptkb_fields)
+    assert(len(run.turns) == 6)
+    
+    # this run has a ptkb_provenance field with the "id" and "text" entries deleted, it should cause the
+    # script to exit when it encounters them
+    with pytest.raises(SystemExit) as pytest_exc:
+        _, _, _ = validate_run(run, topic_data, None, args.max_warnings, args.strict, args.timeout)
+
+    assert(pytest_exc.type == SystemExit)
+    assert(pytest_exc.value.code == 255)
+

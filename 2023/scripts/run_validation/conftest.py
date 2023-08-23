@@ -48,6 +48,7 @@ TOPIC_DATA_FILE              = os.path.join(TOPIC_DATA_PATH, '2023_test_topics.j
 RUN_FILE_PATH                = os.path.join(test_root, 'tests', 'sample_run.json')
 RUN_FILE_PATH_NO_PTKB        = os.path.join(test_root, 'tests', 'sample_run_no_ptkb.json')
 RUN_FILE_PATH_INVALID_SCORES = os.path.join(test_root, 'tests', 'sample_run_invalid_scores.json')
+RUN_FILE_PATH_INVALID_PTKB   = os.path.join(test_root, 'tests', 'sample_run_missing_ptkb_fields.json')
 
 @pytest.fixture
 def sample_database(tmp_path: pathlib.PurePath):
@@ -83,6 +84,10 @@ def run_file_path_no_ptkb():
 @pytest.fixture
 def run_file_path_invalid_scores():
     yield RUN_FILE_PATH_INVALID_SCORES
+
+@pytest.fixture
+def run_file_path_missing_ptkb_fields():
+    yield RUN_FILE_PATH_INVALID_PTKB
 
 @pytest.fixture
 def default_validate_args():
