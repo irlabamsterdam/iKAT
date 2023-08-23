@@ -1,0 +1,7 @@
+*.errlog
+*.sqlite3
+*.tsv
+__pycache__
+compiled_protos
+*.log
+
