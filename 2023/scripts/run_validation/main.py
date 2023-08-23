@@ -138,14 +138,10 @@ def validate_turn(turn: Turn, topic_data: dict[str, Any], stub: Union[None, Pass
         if len(response.passage_provenance) == 0:
             logger.warning(f'Turn {turn.turn_id} has a response with no passage provenances')
             warning_count += 1
+
         elif len(response.passage_provenance) > 1000:
             logger.warning(f'Turn {turn.turn_id} has a response with >1000 passages ({len(response.passage_provenance)})')
             warning_count += 1
-
-        if not hasattr(response, 'ptkb_provenance'):
-            logger.warning(f'Missing "ptkb_provenance" field for a response in turn {turn.turn_id}')
-            warning_count += 1
-            break 
 
         if len(response.ptkb_provenance) == 0:
             logger.warning(f'No PTKB provenances listed for a response in turn {turn.turn_id}!')
