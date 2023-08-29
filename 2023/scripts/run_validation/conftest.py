@@ -13,26 +13,9 @@ test_root = os.path.dirname(__file__)
 sys.path.append(os.path.join(test_root, 'compiled_protobufs'))
 
 from passage_validator import PassageValidator as PassageValidatorServicer
-from passage_validator_pb2_grpc import PassageValidatorStub
 from passage_validator_pb2_grpc import add_PassageValidatorServicer_to_server
 from passage_id_db import PassageIDDatabase, IKAT_PASSAGE_COUNT
 from main import load_run_file, get_stub, GRPC_DEFAULT_TIMEOUT
-
-# see https://docs.pytest.org/en/latest/example/simple.html#control-skipping-of-tests-according-to-command-line-option
-def pytest_addoption(parser):
-    parser.addoption('--runslow', action='store_true', default=False, help='Run slow tests')
-
-def pytest_configure(config):
-    config.addinivalue_line('markers', 'slow: mark test as slow to run')
-
-def pytest_collection_modifyitems(config, items):
-    if config.getoption('--runslow'):
-        # --runslow given in cli: do not skip slow tests
-        return
-    skip_slow = pytest.mark.skip(reason="need --runslow option to run")
-    for item in items:
-        if "slow" in item.keywords:
-            item.add_marker(skip_slow)
 
 # this file just contains the first 10k lines of the full hash file
 SAMPLE_HASHES_PATH           = os.path.join(test_root, 'tests', 'data', 'sample_hashes.tsv')
@@ -44,8 +27,9 @@ FULL_DB_PATH                 = os.path.join(test_root, 'files', 'ikat_2023_passa
 
 TOPIC_DATA_PATH              = os.path.join(test_root, '..', '..', 'data')
 TOPIC_DATA_FILE              = os.path.join(TOPIC_DATA_PATH, '2023_test_topics.json')
+BASELINE_RUN_FILE_PATH       = os.path.join(test_root, '..', 'baselines', 'runs')
+BASELINE_RUN_FILE            = os.path.join(BASELINE_RUN_FILE_PATH, 'ret_bm25_rm3--type_automatic--num_ptkb_3--k_1000--num_psg_3.official.run.json')
 
-RUN_FILE_PATH                = os.path.join(test_root, 'tests', 'data', 'sample_run.json')
 RUN_FILE_PATH_NO_PTKB        = os.path.join(test_root, 'tests', 'data', 'sample_run_no_ptkb.json')
 RUN_FILE_PATH_INVALID_SCORES = os.path.join(test_root, 'tests', 'data', 'sample_run_invalid_scores.json')
 RUN_FILE_PATH_INVALID_PTKB   = os.path.join(test_root, 'tests', 'data', 'sample_run_missing_ptkb_fields.json')
@@ -75,8 +59,8 @@ def topic_data_file():
     yield TOPIC_DATA_FILE
 
 @pytest.fixture
-def run_file_path():
-    yield RUN_FILE_PATH
+def baseline_run_file():
+    yield BASELINE_RUN_FILE
 
 @pytest.fixture
 def run_file_path_no_ptkb():
@@ -97,16 +81,16 @@ def run_file_path_renamed_fields():
 @pytest.fixture
 def default_validate_args():
     yield SimpleNamespace(
-        path_to_run_file=RUN_FILE_PATH,
-        max_warnings=25,
+        path_to_run_file=BASELINE_RUN_FILE,
+        max_warnings=750,
         skip_passage_validation=False,
         fileroot=TOPIC_DATA_PATH,
         timeout=GRPC_DEFAULT_TIMEOUT,
     )
 
 @pytest.fixture
-def sample_turn(run_file_path: str):
-    run = load_run_file(run_file_path)
+def sample_turn(baseline_run_file: str):
+    run = load_run_file(baseline_run_file)
     turn = run.turns[0]
     yield turn
 
@@ -115,7 +99,7 @@ def test_logger(scope='module'):
     logger = logging.Logger('test_logger')
     yield logger
 
-@pytest.fixture
+@pytest.fixture(scope='module')
 def servicer_params_full():
     yield (FULL_DB_PATH, IKAT_PASSAGE_COUNT)
 
@@ -125,13 +109,13 @@ def servicer_params_test():
 
 @pytest.fixture
 def grpc_stub_test(grpc_server_test):
-    yield get_stub()
+    yield get_stub(port=8099)
 
 @pytest.fixture
 def grpc_stub_test_invalid(grpc_server_test_invalid):
     yield get_stub()
 
-@pytest.fixture
+@pytest.fixture(scope='module')
 def grpc_stub_full(grpc_server_full):
     yield get_stub()
 
@@ -140,7 +124,7 @@ def grpc_server_test(servicer_params_test):
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     add_PassageValidatorServicer_to_server(PassageValidatorServicer(*servicer_params_test), server)
 
-    server.add_insecure_port("[::]:8000")
+    server.add_insecure_port("[::]:8099")
     server.start()
     yield server
 
@@ -158,6 +142,17 @@ def grpc_server_test_invalid(servicer_params_test):
     server.stop(None)
 
 @pytest.fixture
+def grpc_server_full_alt(servicer_params_full):
+    server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
+    add_PassageValidatorServicer_to_server(PassageValidatorServicer(*servicer_params_full), server)
+
+    server.add_insecure_port("[::]:8199")
+    server.start()
+    yield server
+
+    server.stop(None)
+
+@pytest.fixture(scope='module')
 def grpc_server_full(servicer_params_full):
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     add_PassageValidatorServicer_to_server(PassageValidatorServicer(*servicer_params_full), server)
