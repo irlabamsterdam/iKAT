@@ -38,6 +38,8 @@ This is a summary of the checks that the script performs on a run file.
  * Does the run file have at least one turn? 
  * Is the `run_name` field non-empty?
  * Is the `run_type` field non-empty and set to `automatic` or `manual`?
+ * Does the number of turns in the run match the number in the test topics file?
+ * Does the number of turns in each topic in the run match the corresponding number in the test topics file?
  * For each turn in the run:
    * Is the turn ID valid and matches an entry in the topics file?
    * Is any turn ID higher than expected for the selected topic (e.g. turns 1-5 in the topic, but a turn has ID 6 in the run file)?
@@ -69,4 +71,4 @@ python3 generate_run.py <path to run file>
 
 ## Tests
 
-There are some tests provided along with the validation script in the `tests` directory. To run them, use `pytest` from the `run_validation` directory, or `pytest --runslow` to run all tests including those that won't complete immediately. 
+There are some tests provided along with the validation script in the `tests` directory. To run them, use `pytest` from the `run_validation` directory.

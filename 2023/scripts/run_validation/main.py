@@ -4,7 +4,7 @@ import logging
 import os
 import sys
 from pathlib import PurePath
-from typing import Tuple, Union, Any
+from typing import Tuple, Union, Any, List
 
 import grpc
 from google.protobuf.json_format import ParseDict
@@ -20,6 +20,9 @@ GRPC_DEFAULT_TIMEOUT = 3.0
 
 # the number of entries that should be parsed from the topics JSON file
 EXPECTED_TOPIC_ENTRIES = 25
+
+# the total number of turns that should appear in a run (and the topics JSON file)
+EXPECTED_RUN_TURN_COUNT = 332
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -60,8 +63,12 @@ def load_topic_data(path: str) -> dict[str, dict[str, Any]]:
 
     # check that topics were loaded correctly
     if len(topic_data) != EXPECTED_TOPIC_ENTRIES:
-        logger.error(f'Topics file not loaded correctly (found {len(topic_data)} entries, expected 25)')
+        logger.error(f'Topics file not loaded correctly (found {len(topic_data)} entries, expected {EXPECTED_TOPIC_ENTRIES})')
         sys.exit(255)
+
+    total_turns = sum(len(topic_data[i]['turns']) for i in range(len(topic_data)))
+    if total_turns != EXPECTED_RUN_TURN_COUNT:
+        logger.error(f'Topics file not loaded correctly (found {total_turns} turns, expected {EXPECTED_RUN_TURN_COUNT} turns)')
 
     # build a dict of the topics with "number" as the key
     topics_dict = {d['number']: d for d in topic_data}
@@ -97,7 +104,7 @@ def load_run_file(run_file_path: str) -> iKATRun:
 
     return run
 
-def validate_turn(turn: Turn, topic_data: dict[str, Any], stub: Union[None, PassageValidatorStub], timeout: float) -> Tuple[int, int]:
+def validate_turn(turn: Turn, ptkb_data: dict[str, Any], stub: Union[None, PassageValidatorStub], timeout: float) -> Tuple[int, int]:
     """
     Validate a single turn from a run.
 
@@ -138,7 +145,6 @@ def validate_turn(turn: Turn, topic_data: dict[str, Any], stub: Union[None, Pass
         if len(response.passage_provenance) == 0:
             logger.warning(f'Turn {turn.turn_id} has a response with no passage provenances')
             warning_count += 1
-
         elif len(response.passage_provenance) > 1000:
             logger.warning(f'Turn {turn.turn_id} has a response with >1000 passages ({len(response.passage_provenance)})')
             warning_count += 1
@@ -146,16 +152,70 @@ def validate_turn(turn: Turn, topic_data: dict[str, Any], stub: Union[None, Pass
         if len(response.ptkb_provenance) == 0:
             logger.warning(f'No PTKB provenances listed for a response in turn {turn.turn_id}!')
             warning_count += 1
-            break 
+            continue # no point in doing the next block 
 
         prev_ptkb_score = 1e9
-        ptkbs = topic_data['ptkb']
 
         for ptkb_prov in response.ptkb_provenance:
-            warning_count += check_ptkb_provenance(ptkb_prov, turn, ptkbs, prev_ptkb_score, logger)
+            warning_count += check_ptkb_provenance(ptkb_prov, turn, ptkb_data, prev_ptkb_score, logger)
             prev_ptkb_score = ptkb_prov.score
 
     return warning_count, service_errors
+
+def validate_all_turns(run: iKATRun, topics_dict: dict[str, dict[str, Any]]) -> dict[str, List[Turn]]:
+    """
+    Given a run file, verify the number of turns.
+
+    This involves:
+        1. Checking that the total number of turns matches the test topics file
+        2. Checking that there are the correct number of turns for each topic
+
+    To make subsequent topic-by-topic validation simpler, this will also pull out
+    the list of individual turns for each topic and return those. 
+    """
+    
+    # we already know the number of turns in topics_dict is correct after checking
+    # that in the load_topic_data method. so here we need to first check the number
+    # of turns in the run matches that...
+
+    if len(run.turns) != EXPECTED_RUN_TURN_COUNT:
+        logger.error(f'The run contains {len(run.turns)} turns, but the test topics contain {EXPECTED_RUN_TURN_COUNT} turns')
+        sys.exit(255)
+
+    run_topics_dict: dict[str, List[Turn]] = {}
+    for turn in run.turns:
+        # check if the turn ID looks valid
+        try:
+            topic_id, turn_id = turn.turn_id.split('_')
+            turn_id = int(turn_id)
+        except Exception as e:
+            logger.error(f'Failed to parse turn ID "{turn.turn_id}", exception was {e}')
+            sys.exit(255)
+
+        if topic_id not in run_topics_dict:
+            run_topics_dict[topic_id] = []
+
+        run_topics_dict[topic_id].append(turn)
+
+    # check we have the expected number of topics from the run file
+    if len(run_topics_dict) != EXPECTED_TOPIC_ENTRIES:
+        logger.error(f'The run contains {len(run_topics_dict)} topics, the expected number is {EXPECTED_TOPIC_ENTRIES}')
+        sys.exit(255)
+
+    # check each topic has the expected number of turns, and that each
+    # expected topic appears in the run
+    for topic_id, topic_data in topics_dict.items():
+        if topic_id not in run_topics_dict:
+            logger.error(f'The topic {topic_id} does not appear in the run file')
+            sys.exit(255)
+
+        expected_turns = len(topic_data['turns'])
+        actual_turns = len(run_topics_dict[topic_id])
+        if expected_turns != actual_turns:
+            logger.error(f'The topic {topic_id} should have {expected_turns} turns but actually has {actual_turns} turns')
+            sys.exit(255)
+
+    return run_topics_dict
 
 def validate_run(run: iKATRun, topics_dict: dict[str, dict[str, Any]], stub: Union[None, PassageValidatorStub], max_warnings: int, timeout: float) -> Tuple[int, int, int]:
     """
@@ -174,49 +234,31 @@ def validate_run(run: iKATRun, topics_dict: dict[str, dict[str, Any]], stub: Uni
         logger.warning('Run has an unrecognised type, should be "automatic" or "manual"!')
         total_warnings += 1
 
-    for turn in run.turns:
-        # check if the turn ID is valid
-        try:
+    run_topics_dict = validate_all_turns(run, topics_dict)
+
+    for topic_id, topic_data in run_topics_dict.items():
+        for turn in topic_data:
             topic_id, turn_id = turn.turn_id.split('_')
-        except Exception as e:
-            logger.warning(f'Failed to parse turn ID "{turn.turn_id}", exception was {e}')
-            total_warnings += 1
-            continue
+            turn_id = int(turn_id)
 
-        if topic_id not in topics_dict:
-            logger.warning(f'Turn {turn.turn_id} has an topic ID ({topic_id}) that is not in the topics JSON file!')
-            total_warnings += 1
-            continue # probably not worth doing anything else with this turn
+            max_turn_id = len(topics_dict[topic_id]['turns'])
+            if turn_id < 1 or turn_id > max_turn_id:
+                logger.error(f'Turn {turn.turn_id} has an invalid turn ID {turn_id}, expected range: 1-{max_turn_id}')
+                sys.exit(255)
 
-        topic_data = topics_dict[topic_id]
-        num_turns = len(topic_data['turns'])
-        try:
-            turn_id_int = int(turn_id)
-        except ValueError:
-            logger.error(f'Failed to parse turn ID {turn_id} as an integer')
-            sys.exit(255)
+            _warnings, _service_errors = validate_turn(turn, topics_dict[topic_id]['ptkb'], stub, timeout)
+            total_warnings += _warnings
+            service_errors += _service_errors
+            turns_validated += 1
 
-        if turn_id_int > num_turns:
-            logger.error(f'Turn {turn.turn_id} has a turn ID higher than the number of expected turns ({turn_id} > {num_turns})')
-            sys.exit(255)
+            if total_warnings > max_warnings:
+                logger.error(f'Maximum number of warnings exceeded ({total_warnings} > {max_warnings}), aborting!')
+                sys.exit(255)
 
-        if len(run.turns) != num_turns:
-            logger.error(f'The run contains {len(run.turns)} turns, but the topic contains {num_turns} turns')
-            sys.exit(255)
-
-        _warnings, _service_errors = validate_turn(turn, topic_data, stub, timeout)
-        total_warnings += _warnings
-        service_errors += _service_errors
-        turns_validated += 1
-
-        if total_warnings > max_warnings:
-            logger.error(f'Maximum number of warnings exceeded ({total_warnings} > {max_warnings}), aborting!')
-            sys.exit(255)
-
-        if service_errors > 0:
-            # always abort if a passage ID validation error occurs
-            logger.error('Validation service errors encountered')
-            sys.exit(255)
+            if service_errors > 0:
+                # always abort if a passage ID validation error occurs
+                logger.error('Validation service errors encountered')
+                sys.exit(255)
 
     logger.info(f'Validation completed on {turns_validated}/{len(run.turns)} turns with {total_warnings} warnings, {service_errors} service errors')
     return turns_validated, service_errors, total_warnings
@@ -258,7 +300,7 @@ if __name__ == '__main__':
     ap.add_argument('path_to_run_file')
     ap.add_argument('-f', '--fileroot', help='Location of data files', default='../../data')
     ap.add_argument('-S', '--skip_passage_validation', help='Skip passage ID validation', action='store_true')
-    ap.add_argument('-m', '--max_warnings', help='Maximum number of warnings to allow', type=int, default=25) 
+    ap.add_argument('-m', '--max_warnings', help='Maximum number of warnings to allow', type=int, default=2000) 
     ap.add_argument('-t', '--timeout', help='Set the gRPC timeout (secs) for contacting the validation service', default=GRPC_DEFAULT_TIMEOUT, type=float)
     args = ap.parse_args()
 

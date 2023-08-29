@@ -13,10 +13,10 @@ def build_request(ids):
 def get_invalid_indices(response):
     return [i for i, pv in enumerate(response.passage_validations) if not pv.is_valid]
 
-def test_validate_passages(grpc_stub_test, test_logger, sample_turn):
-    assert(validate_passages(grpc_stub_test, test_logger, sample_turn, GRPC_DEFAULT_TIMEOUT) == 0)
+def test_validate_passages(grpc_stub_full, test_logger, sample_turn):
+    assert(validate_passages(grpc_stub_full, test_logger, sample_turn, GRPC_DEFAULT_TIMEOUT) == 0)
 
-def test_validate_too_many_passages(grpc_stub_test, test_logger, sample_turn, topic_data_file):
+def test_validate_too_many_passages(grpc_stub_full, test_logger, sample_turn, topic_data_file):
     # add extra passages to each response
     num_responses = len(sample_turn.responses)
     passages = []
@@ -33,9 +33,10 @@ def test_validate_too_many_passages(grpc_stub_test, test_logger, sample_turn, to
     topic_data = load_topic_data(topic_data_file)
     topic_id = sample_turn.turn_id.split('_')[0]
 
-    # this should produce 1 warning per response due to the number of passages listed being >1k
-    warning_count, service_errors = validate_turn(sample_turn, topic_data[topic_id], grpc_stub_test, GRPC_DEFAULT_TIMEOUT)
-    assert(warning_count == len(sample_turn.responses))
+    # this should produce 2 warnings per response due to the number of passages listed being >1k
+    # and not having any PTKB entries
+    warning_count, service_errors = validate_turn(sample_turn, topic_data[topic_id], grpc_stub_full, GRPC_DEFAULT_TIMEOUT)
+    assert(warning_count == len(sample_turn.responses) * 2)
     assert(service_errors == 0)
 
 def test_all_invalid_ids(grpc_stub_test):
