@@ -38,7 +38,6 @@ This is a summary of the checks that the script performs on a run file.
  * Does the run file have at least one turn? 
  * Is the `run_name` field non-empty?
  * Is the `run_type` field non-empty and set to `automatic` or `manual`?
- * Does the number of turns match that of the selected topic?
  * For each turn in the run:
    * Is the turn ID valid and matches an entry in the topics file?
    * Is any turn ID higher than expected for the selected topic (e.g. turns 1-5 in the topic, but a turn has ID 6 in the run file)?
@@ -60,6 +59,13 @@ This is a summary of the checks that the script performs on a run file.
        * Does the text given match that in the topic data?
        * Does it have a score less than the previous entry?
 
+## Generating a run file
+
+To generate a TREC run file after validation:
+
+```python
+python3 generate_run.py <path to run file>
+```
 
 ## Tests
 
