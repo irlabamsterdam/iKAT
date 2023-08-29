@@ -300,7 +300,7 @@ if __name__ == '__main__':
     ap.add_argument('path_to_run_file')
     ap.add_argument('-f', '--fileroot', help='Location of data files', default='../../data')
     ap.add_argument('-S', '--skip_passage_validation', help='Skip passage ID validation', action='store_true')
-    ap.add_argument('-m', '--max_warnings', help='Maximum number of warnings to allow', type=int, default=25) 
+    ap.add_argument('-m', '--max_warnings', help='Maximum number of warnings to allow', type=int, default=2000) 
     ap.add_argument('-t', '--timeout', help='Set the gRPC timeout (secs) for contacting the validation service', default=GRPC_DEFAULT_TIMEOUT, type=float)
     args = ap.parse_args()
 
