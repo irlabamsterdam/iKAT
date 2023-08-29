@@ -21,6 +21,9 @@ GRPC_DEFAULT_TIMEOUT = 3.0
 # the number of entries that should be parsed from the topics JSON file
 EXPECTED_TOPIC_ENTRIES = 25
 
+# the total number of turns that should appear in a run (and the topics JSON file)
+EXPECTED_RUN_TURN_COUNT = 332
+
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
@@ -60,8 +63,12 @@ def load_topic_data(path: str) -> dict[str, dict[str, Any]]:
 
     # check that topics were loaded correctly
     if len(topic_data) != EXPECTED_TOPIC_ENTRIES:
-        logger.error(f'Topics file not loaded correctly (found {len(topic_data)} entries, expected 25)')
+        logger.error(f'Topics file not loaded correctly (found {len(topic_data)} entries, expected {EXPECTED_TOPIC_ENTRIES})')
         sys.exit(255)
+
+    total_turns = sum(len(topic_data[i]['turns']) for i in range(len(topic_data)))
+    if total_turns != EXPECTED_RUN_TURN_COUNT:
+        logger.error(f'Topics file not loaded correctly (found {total_turns} turns, expected {EXPECTED_RUN_TURN_COUNT} turns)')
 
     # build a dict of the topics with "number" as the key
     topics_dict = {d['number']: d for d in topic_data}
@@ -202,21 +209,21 @@ def validate_run(run: iKATRun, topics_dict: dict[str, dict[str, Any]], stub: Uni
 
         if len(run.turns) != num_turns:
             logger.error(f'The run contains {len(run.turns)} turns, but the topic contains {num_turns} turns')
-            sys.exit(255)
+                sys.exit(255)
 
         _warnings, _service_errors = validate_turn(turn, topic_data, stub, timeout)
-        total_warnings += _warnings
-        service_errors += _service_errors
-        turns_validated += 1
+            total_warnings += _warnings
+            service_errors += _service_errors
+            turns_validated += 1
 
-        if total_warnings > max_warnings:
-            logger.error(f'Maximum number of warnings exceeded ({total_warnings} > {max_warnings}), aborting!')
-            sys.exit(255)
+            if total_warnings > max_warnings:
+                logger.error(f'Maximum number of warnings exceeded ({total_warnings} > {max_warnings}), aborting!')
+                sys.exit(255)
 
-        if service_errors > 0:
-            # always abort if a passage ID validation error occurs
-            logger.error('Validation service errors encountered')
-            sys.exit(255)
+            if service_errors > 0:
+                # always abort if a passage ID validation error occurs
+                logger.error('Validation service errors encountered')
+                sys.exit(255)
 
     logger.info(f'Validation completed on {turns_validated}/{len(run.turns)} turns with {total_warnings} warnings, {service_errors} service errors')
     return turns_validated, service_errors, total_warnings
