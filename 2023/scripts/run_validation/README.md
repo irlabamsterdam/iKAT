@@ -2,7 +2,7 @@
 
 ## Initial configuration 
 
-1. Copy the `ikat_2023_passage_hashes.tsv` file into `files`. 
+1. Copy the `ikat_2023_passages_hashes.tsv` file into `files`. 
 2. Create a virtualenv, activate it, and run `pip install -r requirements.txt`.
 3. Run `bash setup.sh`
 
