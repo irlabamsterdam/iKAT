@@ -1,8 +1,10 @@
-from compiled_protobufs.run_pb2 import iKATRun
 import argparse
-from google.protobuf.json_format import Parse, ParseDict
 import json
 from pathlib import PurePath
+
+from google.protobuf.json_format import Parse, ParseDict
+
+from compiled_protobufs.run_pb2 import iKATRun
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(description='TREC 2022 CAsT run generator',
@@ -24,6 +26,8 @@ if __name__ == "__main__":
             for response in turn.responses:
                 for provenance in response.passage_provenance:
                     if provenance.id not in provenance_set:
+                        # normalize provenance scores
+                        provenance.score = (1 / (response.rank+1)) * provenance.score
                         provenance_list.append(provenance)
                         provenance_set.add(provenance.id)
 
