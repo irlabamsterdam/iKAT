@@ -8,12 +8,20 @@ from passage_validator import PassageValidator
 from main import validate, GRPC_DEFAULT_TIMEOUT, EXPECTED_RUN_TURN_COUNT
 
 def test_service_startup(servicer_params_test):
+    """
+    Test that the PassageValidator service loads a sample database correctly.
+    """
     pv = PassageValidator(*servicer_params_test)
     assert(pv.db.rowcount() == servicer_params_test[1])
 
 def test_service_startup_invalid_rows(servicer_params_test):
+    """
+    Test that the service fails to start if the database has an unexpected row count.
+    """
     with pytest.raises(SystemExit) as pytest_exc:
-        pv = PassageValidator(servicer_params_test[0], 12345)
+        # this should cause the service to exit because the sample database has 
+        # 10,000 rows instead of 12,345
+        _ = PassageValidator(servicer_params_test[0], 12345)
 
     assert(pytest_exc.type == SystemExit)
     assert(pytest_exc.value.code == 255)
