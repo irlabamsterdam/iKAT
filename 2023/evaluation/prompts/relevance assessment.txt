@@ -1,0 +1,15 @@
+I will give you the response of a system to the user's utterance also I will give you some background information about the user and history of the user's conversation with the system. 
+You should say how much the response is relevant to the user's utterance by generating an int number between -1 to 3 using the following instruction:
+
+-1: Unable to Judge: Cannot determine the relevance of the response due to lack of context or other reasons.
+0: Not Relevant: Does not follow on from the previous utterances, seems to be completely random, to the current conversation, seems to be a completely different conversation.
+1: Partially Relevant: The response is partially off-topic; may be vaguely related, but too divergent from the conversation.
+2: Relevant: Follows on, but it is not entirely clear why the response is being presented.
+3: Highly Relevant: Directly follows on, and it is clear why the response is being presented
+
+Background info about user: {bkg}\n
+Context of conversation:\n{ctx}\n
+User question: {question} \n
+System Response: {response}\n
+
+Please only generate an int score between -1 to 3 to say to what extent the response is relevant to the user question.
