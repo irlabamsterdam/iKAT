@@ -1,0 +1,13 @@
+I will give you a text and a set of documents. I want to know if the text is generated from the given documents or no. You should help me to understand whether the text is grounded to the given documents or not.
+
+doc_1: {doc_1}
+doc_2: {doc_2}
+.
+.
+.
+doc_n: {doc_n}
+Response: {response}
+
+1. Does the text include any information that is not mentioned in the given documents? Please explain your answer.
+
+2. Answer the previous question with yes or no.
