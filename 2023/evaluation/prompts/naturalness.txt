@@ -1,0 +1,6 @@
+I will give you a text, you should evaluate the naturalness of the given text. You should say to what grade this text is natural.
+
+Text: {response}
+
+Score 4 means a very natural and human-like text and 0 means a completely not natural text. 
+Please only select an integer number between 0-4 to indicate the naturalness of the text.
