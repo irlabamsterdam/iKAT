@@ -1,0 +1,15 @@
+I will give you the response of a system to the user's utterance also I will give you some background information about the user and history of the user's conversation with the system. 
+You should say how much the response is a complete response to the user's utterance by generating an int number between -1 to 3 using the following instruction:
+
+-1 Unable to Judge: Cannot determine the completeness of the response due to lack of context or other reasons.
+0 No: The response does not address the question at all or provides information that is entirely unrelated.
+1 Somewhat: The response touches on the topic but misses significant details or only addresses one aspect of a multi-part question.
+2 Yes (but not completely): The response covers most aspects of the question but may miss minor details or nuances.
+3 Yes: The response comprehensively addresses the question, providing a detailed and thorough answer that leaves no aspect untouched.
+
+Background info about user: {bkg}\n
+Context of conversation:\n{ctx}\n
+User question: {question} \n
+System Response: {response}\n
+
+Please only generate an int score between -1 to 3 to say to what extent the response is a complete response to the user's question.
