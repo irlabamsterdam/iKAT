@@ -311,7 +311,7 @@ def validate(
         logger.error("Failed to set up validation service")
         raise Exception("Failed to set up validation service")
 
-    topics_dict = load_topic_data(f"{fileroot}/2023_test_topics.json")
+    topics_dict = load_topic_data(f"{fileroot}/2024_test_topics.json")
 
     run = load_run_file(run_file_path)
 
