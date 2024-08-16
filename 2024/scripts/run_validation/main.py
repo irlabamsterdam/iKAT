@@ -115,7 +115,7 @@ def load_run_file(run_file_path: str) -> iKATRun:
 
 
 def validate_turn(
-    turn: Turn, ptkb_data: dict[str, Any], stub: PassageValidatorStub | None, timeout: float
+    run_type: str, turn: Turn, ptkb_data: dict[str, Any], stub: PassageValidatorStub | None, timeout: float
 ) -> tuple[int, int]:
     """
     Validate a single turn from a run.
@@ -141,7 +141,7 @@ def validate_turn(
 
     for i, response in enumerate(turn.responses):
         # check the response:
-        warning_count += check_response(response, logger, previous_rank, turn.turn_id)
+        warning_count += check_response(run_type, response, logger, previous_rank, turn.turn_id)
 
         previous_score = 1e9
 
@@ -270,7 +270,7 @@ def validate_run(
                 logger.error(f"Turn {turn.turn_id} has an invalid turn ID {turn_id}, expected range: 1-{max_turn_id}")
                 sys.exit(255)
 
-            _warnings, _service_errors = validate_turn(turn, topics_dict[topic_id]["ptkb"], stub, timeout)
+            _warnings, _service_errors = validate_turn(run.run_type, turn, topics_dict[topic_id]["ptkb"], stub, timeout)
             total_warnings += _warnings
             service_errors += _service_errors
             turns_validated += 1
