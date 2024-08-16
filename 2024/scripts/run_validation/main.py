@@ -19,10 +19,10 @@ from run_pb2 import Turn, iKATRun
 GRPC_DEFAULT_TIMEOUT = 3.0
 
 # the number of entries that should be parsed from the topics JSON file
-EXPECTED_TOPIC_ENTRIES = 25
+EXPECTED_TOPIC_ENTRIES = 17
 
 # the total number of turns that should appear in a run (and the topics JSON file)
-EXPECTED_RUN_TURN_COUNT = 332
+EXPECTED_RUN_TURN_COUNT = 218
 
 VALID_RUN_TYPES = set(["automatic", "manual", "only_response"])
 
