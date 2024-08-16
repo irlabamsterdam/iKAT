@@ -194,17 +194,17 @@ def validate_all_turns(run: iKATRun, topics_dict: dict[str, dict[str, Any]]) -> 
     # we already know the number of turns in topics_dict is correct after checking
     # that in the load_topic_data method. so here we need to first check the number
     # of turns in the run matches that...
-
     if len(run.turns) != EXPECTED_RUN_TURN_COUNT:
         logger.error(f"The run contains {len(run.turns)} turns, but the test topics contain {EXPECTED_RUN_TURN_COUNT} turns")
         sys.exit(255)
 
+    # now extract the turns from the run into a dict keyed by topic ID
     run_topics_dict: dict[str, list[Turn]] = {}
     for turn in run.turns:
-        # check if the turn ID looks valid
         try:
-            topic_id, turn_id = turn.turn_id.split("_")
-            turn_id = int(turn_id)
+            # check if the turn ID looks valid and convert the components
+            # to separate integers
+            topic_id, turn_id = list(map(int, turn.turn_id.split("_")))
         except Exception as e:
             logger.error(f'Failed to parse turn ID "{turn.turn_id}", exception was {e}')
             sys.exit(255)
@@ -262,8 +262,7 @@ def validate_run(
 
     for topic_id, topic_data in run_topics_dict.items():
         for turn in topic_data:
-            topic_id, turn_id = turn.turn_id.split("_")
-            turn_id = int(turn_id)
+            topic_id, turn_id = list(map(int, turn.turn_id.split("_")))
 
             max_turn_id = len(topics_dict[topic_id]["turns"])
             if turn_id < 1 or turn_id > max_turn_id:
