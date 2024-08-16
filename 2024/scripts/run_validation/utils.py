@@ -9,7 +9,7 @@ from passage_validator_pb2_grpc import PassageValidatorStub
 from run_pb2 import Turn, PassageProvenance, Response
 
 
-def check_response(response: Response, logger: Logger, previous_rank: int, turn_id: str) -> int:
+def check_response(run_type: str, response: Response, logger: Logger, previous_rank: int, turn_id: str) -> int:
     """
     Validate a Response within a Turn.
 
@@ -34,8 +34,8 @@ def check_response(response: Response, logger: Logger, previous_rank: int, turn_
         )
         new_warnings += 1
 
-    # the response text shouldn't be empty
-    if len(response.text) == 0:
+    # the response text shouldn't be empty (unless this is an "only_response" run)
+    if len(response.text) == 0 and run_type != "only_response":
         logger.warning(f"Response text for turn {turn_id} is missing")
         new_warnings += 1
 
