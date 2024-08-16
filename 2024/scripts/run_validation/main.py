@@ -326,7 +326,7 @@ def validate(
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(
-        description="iKAT TREC 2023 validator", formatter_class=argparse.ArgumentDefaultsHelpFormatter
+        description="iKAT TREC 2024 validator", formatter_class=argparse.ArgumentDefaultsHelpFormatter
     )
     _ = ap.add_argument("path_to_run_file")
     _ = ap.add_argument("-f", "--fileroot", help="Location of data files", default="../../data")
