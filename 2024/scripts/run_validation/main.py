@@ -255,7 +255,7 @@ def validate_run(
         logger.warning("Run has an empty run_type field")
         total_warnings += 1
     if run.run_type not in VALID_RUN_TYPES:
-        logger.warning("Run has an unrecognised type, should be one of {VALID_RUN_TYPES}")
+        logger.warning(f"Run has an unrecognised type, should be one of {VALID_RUN_TYPES}")
         total_warnings += 1
 
     run_topics_dict = validate_all_turns(run, topics_dict)
