@@ -1,0 +1,30 @@
+[tool.black]
+max-line-length = 125
+[tool.ruff]
+select = ["E", "F", "B"]
+ignore = ["F401"]
+line-length = 125
+src = [".", "/compiled_protobufs"]
+[tool.ruff.isort]
+split-on-trailing-comma = true
+known-first-party = ["utils", "passage_validator_pb2", "passage_validator_pb2_grpc", "run_pb2", "run_pb2_grpc"]
+
+
+[tool.pyright]
+stubPath = "./compiled_protobufs"
+extraPaths = ["./compiled_protobufs"]
+typeCheckingMode = "basic"
+reportImportCycles = "information"
+reportUnusedImport = "none"
+reportUnusedVariable = "information"
+reportDuplicateImport = "information"
+reportWildcardImportFromLibrary = "warning"
+reportPrivateUsagenformation = "warning"
+reportPrivateUsage = "warning"
+reportConstantRedefinition = "warning"
+reportIncompatibleMethodOverride = "warning"
+reportUnknownParameterType = "information"
+reportMissingParameterType = "information"
+reportUnnecessaryContains = "warning"
+reportUnnecessaryComparison = "warning"
+reportImplicitStringConcatenation = "none"
