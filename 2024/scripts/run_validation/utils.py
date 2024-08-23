@@ -88,7 +88,7 @@ def check_ptkb_provenance(ptkb_prov: int, turn: Turn, ptkbs: dict[str, Any], log
     """
     new_warnings = 0
 
-    if ptkb_prov < 0 or ptkb_prov >= len(ptkbs):
+    if ptkb_prov < 0 or ptkb_prov > len(ptkbs):
         logger.error(f"A PTKB provenance ID {ptkb_prov} is outside the valid range (1--{len(ptkbs)})")
         sys.exit(255)
 
