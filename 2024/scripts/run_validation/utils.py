@@ -74,7 +74,7 @@ def check_passage_provenance(prev_score: float, provenance: PassageProvenance, l
     return new_warnings
 
 
-def check_ptkb_provenance(ptkb_prov: int, turn: Turn, ptkbs: dict[str, Any], prev_score: float, logger: Logger) -> int:
+def check_ptkb_provenance(ptkb_prov: int, turn: Turn, ptkbs: dict[str, Any], logger: Logger) -> int:
     """
     Validate a PTKBProvenance ID.
 
