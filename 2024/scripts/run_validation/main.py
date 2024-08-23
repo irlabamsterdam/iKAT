@@ -170,11 +170,8 @@ def validate_turn(
             warning_count += 1
             continue  # no point in doing the next block
 
-        prev_ptkb_score = 1e9
-
         for ptkb_prov in response.ptkb_provenance:
-            warning_count += check_ptkb_provenance(ptkb_prov, turn, ptkb_data, prev_ptkb_score, logger)
-            prev_ptkb_score = ptkb_prov.score
+            warning_count += check_ptkb_provenance(ptkb_prov, turn, ptkb_data, logger)
 
     return warning_count, service_errors
 
