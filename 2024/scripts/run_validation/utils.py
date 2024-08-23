@@ -58,7 +58,7 @@ def check_passage_provenance(prev_score: float, provenance: PassageProvenance, l
     # the scores should decrease with each entry
     if provenance.score > prev_score:
         logger.warning(
-            f"Provenance entry with ID {provenance.id} in turn {turn_id} has a greater score than the previous passage ({provenance.score} > {prev_score}. Ranking order for turn {turn_id} not correct"
+            f"Provenance entry with ID {provenance.id} in turn {turn_id} has a greater score than the previous passage ({provenance.score} > {prev_score}). Ranking order for turn {turn_id} not correct"
         )
         new_warnings += 1
 
