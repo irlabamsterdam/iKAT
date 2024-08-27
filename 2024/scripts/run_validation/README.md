@@ -2,8 +2,8 @@
 
 ## Initial configuration 
 
-1. Copy the `ikat_2023_passages_hashes.tsv` file into `files`. 
-2. Create a virtualenv, activate it, and run `pip install -r requirements.txt`.
+1. Copy the `ikat_2023_passages_hashes.tsv` file into `files`. To obtain this file, you will need to visit the [URL your team was given when registering](https://www.trecikat.com/data/#how-do-i-access-these-resources) (of the form `https://ikattrecweb.grill.science/<team name>/`)
+2. Create a virtualenv, activate it, and run `pip install -r requirements.txt`
 3. Run `bash setup.sh`
 
 This will compile the protocol buffers used by the gRPC validator service, and then build an SQLite database containing passage IDs to allow them to be looked up more efficiently. This might take 4-5 minutes depending on your hardware. 
