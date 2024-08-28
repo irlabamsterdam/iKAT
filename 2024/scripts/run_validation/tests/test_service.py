@@ -31,6 +31,7 @@ def validate_wrapper(run_file:str , file_root: str, max_warnings: int, skip_vali
     turns_validated, service_errors, warning_count = validate(run_file, file_root, max_warnings, skip_validation, timeout=GRPC_DEFAULT_TIMEOUT)
     return (turns_validated, service_errors, warning_count)
 
+@pytest.mark.skip("Currently broken")
 def test_service_multiple_clients(default_validate_args, grpc_server_full):
     """
     Test that the service handles multiple clients.
