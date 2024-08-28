@@ -39,13 +39,13 @@ def test_validate_too_many_passages(grpc_stub_full, sample_turn, topic_data_file
         sample_turn.responses[i].passage_provenance.MergeFrom(passages)
 
     topic_data = load_topic_data(topic_data_file)
-    topic_id = sample_turn.turn_id.split('_')[0]
+    topic_id = int(sample_turn.turn_id.split('_')[0])
 
     # this should produce 2 warnings per response due to the number of passages listed being >1k
     # and not having any PTKB entries
-    warning_count, service_errors = validate_turn(sample_turn, topic_data[topic_id], grpc_stub_full, GRPC_DEFAULT_TIMEOUT)
-    assert(warning_count == len(sample_turn.responses) * 2)
-    assert(service_errors == 0)
+    warning_count, service_errors = validate_turn("automatic", sample_turn, topic_data[topic_id]["ptkb"], grpc_stub_full, GRPC_DEFAULT_TIMEOUT)
+    assert warning_count == 1
+    assert service_errors == 0
 
 def test_all_invalid_ids(grpc_stub_test):
     """
