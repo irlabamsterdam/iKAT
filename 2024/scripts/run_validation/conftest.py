@@ -26,9 +26,10 @@ SAMPLE_DB_COUNT              = 10000
 FULL_DB_PATH                 = os.path.join(test_root, 'files', 'ikat_2023_passages_hashes.sqlite3')
 
 TOPIC_DATA_PATH              = os.path.join(test_root, '..', '..', 'data')
-TOPIC_DATA_FILE              = os.path.join(TOPIC_DATA_PATH, '2023_test_topics.json')
+TOPIC_DATA_FILE              = os.path.join(TOPIC_DATA_PATH, '2024_test_topics.json')
+# TODO replace with a real baseline run file
 BASELINE_RUN_FILE_PATH       = os.path.join(test_root, '..', 'baselines', 'runs')
-BASELINE_RUN_FILE            = os.path.join(BASELINE_RUN_FILE_PATH, 'ret_bm25_rm3--type_automatic--num_ptkb_3--k_1000--num_psg_3.official.run.json')
+BASELINE_RUN_FILE            = os.path.join(test_root, 'tests', 'data', 'sample_run.json')
 
 RUN_FILE_PATH_NO_PTKB        = os.path.join(test_root, 'tests', 'data', 'sample_run_no_ptkb.json')
 RUN_FILE_PATH_INVALID_SCORES = os.path.join(test_root, 'tests', 'data', 'sample_run_invalid_scores.json')
