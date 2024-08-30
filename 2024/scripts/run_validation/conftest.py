@@ -42,7 +42,6 @@ def sample_database(tmp_path: pathlib.PurePath):
     hdb = PassageIDDatabase(str(tmp_path / 'temp.sqlite3'))
     hdb.open()
     hdb.populate(SAMPLE_HASHES_PATH, 5000, 10000)
-    print(tmp_path)
     yield hdb
     hdb.close()
 

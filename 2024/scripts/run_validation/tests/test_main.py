@@ -133,7 +133,9 @@ def test_validate_turn(topic_data_file: str, grpc_stub_full, sample_turn):
     topic_id = int(sample_turn.turn_id.split("_")[0])
     print(sample_turn.turn_id)
     print(topic_data[topic_id])
-    warnings, service_errors = validate_turn("automatic", sample_turn, topic_data[topic_id]["ptkb"], grpc_stub_full, GRPC_DEFAULT_TIMEOUT)
+    warnings, service_errors = validate_turn(
+        "automatic", sample_turn, topic_data[topic_id]["ptkb"], grpc_stub_full, GRPC_DEFAULT_TIMEOUT
+    )
     assert service_errors == 0
 
 
