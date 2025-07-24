@@ -9,3 +9,5 @@ We recommend using this script to verify the output adheres to the expected form
 ```bash
 python scripts/validate_trec_ikat25.py --input <your-submission-file>.jsonl --topics data/2025_test_topics.json
 ```
+
+This validation script can be tried with the baseline run provided in <a href="https://github.com/irlabamsterdam/iKAT/blob/main/2025/data/2025_baselines/gpt41mini-bm25-minilm-llama70b-gpt41mini.jsonl">gpt41mini-bm25-minilm-llama70b-gpt41mini.jsonl</a>
