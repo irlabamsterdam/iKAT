@@ -269,11 +269,13 @@ def main():
     print(missing_turns)
     print(additional_turns)
     if missing_turns:
+        total_errors += 1
         print(f"[File] ❌ ERROR:")
         for turn in sorted(missing_turns):
             print(f"Error: Missing turn_id: {turn}")
         print(f"Error: Total missing turn_ids: {len(missing_turns)}")
     if additional_turns:
+        total_errors += 1
         print(f"[File] ❌ ERROR:")
         for turn in sorted(additional_turns):
             print(f"Error: Additional turn_id not in topics: {turn}")
