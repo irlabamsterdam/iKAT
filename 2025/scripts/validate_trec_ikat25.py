@@ -63,7 +63,7 @@ def fix_citations(entry, count, verbose=False):
     refs = entry.get("references", [])
     # convert refs to a list from a dict after sorting by value, only keep the keys
     try:
-        refs = [k for k, v in sorted(refs.items(), key=lambda item: item[1])]
+        refs = [k for k, v in sorted(refs.items(), key=lambda item: item[1], reverse=True)]
     except Exception as e:
         # "references must be a dict, with segment IDs as keys and scores as values: {e}")
         print(f"[Fix-{count}] references must be a dict, with segment IDs as keys and scores as values: {e}")
@@ -141,7 +141,7 @@ def validate_entry(entry):
     refs = entry.get("references")
     try:
         # convert refs to a list from a dict after sorting by value, only keep the keys
-        refs = [k for k, v in sorted(refs.items(), key=lambda item: item[1])]
+        refs = [k for k, v in sorted(refs.items(), key=lambda item: item[1], reverse=True)]
     except Exception as e:
         errors.append(f"references must be a dict, with segment IDs as keys and scores as values: {e}")
 
@@ -169,7 +169,7 @@ def validate_entry(entry):
             else:
                 cits = a["citations"]
                 try:
-                    cits = [k for k, v in sorted(cits.items(), key=lambda item: item[1])]
+                    cits = [k for k, v in sorted(cits.items(), key=lambda item: item[1], reverse=True)]
                 except Exception as e:
                     errors.append(f"responses[{idx}].citations must be a dict, with segment IDs as keys and scores as values: {e}")
                     continue
@@ -266,8 +266,6 @@ def main():
     # Check for missing turn_ids or too many turn_ids
     missing_turns = valid_topic_ids - submitted_turn_ids
     additional_turns = submitted_turn_ids - valid_topic_ids
-    print(missing_turns)
-    print(additional_turns)
     if missing_turns:
         total_errors += 1
         print(f"[File] ❌ ERROR:")
